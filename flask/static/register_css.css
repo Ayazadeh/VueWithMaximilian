@@ -1,0 +1,40 @@
+.card{
+    background-color: ghostwhite;
+    border: 5px outset #041f62;
+    width: 30%;
+    height: 500px;
+    margin: auto;
+    box-shadow: 1px 4px 10px 3px;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
+input, select, textarea{
+    border: 2px outset #0e47b7;
+    border-radius: 8px;
+    width: 90%;
+    height: 10px;
+    padding: 10px;
+    margin-bottom: 12px;
+    box-shadow: 1px 1px 1px;
+}
+.form:hover{
+    border-color: #0ca7a1;
+}
+textarea{
+    height: 50px;
+}
+.button{
+    border : 2px inset blue;
+    border-radius: 5px;
+    background-color: #0e47b7;
+    color: ghostwhite;
+    margin-left: 40%;
+    font-size: 20px;
+    font-family: "Times New Roman";
+}
+.button:hover{
+    background-color: #4164bc;
+
+}
