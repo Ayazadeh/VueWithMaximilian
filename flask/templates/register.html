@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='register_css.css') }}">
+</head>
+<body>
+<div class="card">
+    <h1>Register user</h1>
+    <p>Enter your profile</p>
+    <form>
+        <label for="text_box1">Firstname:</label>
+        <input class="form" type="text" id="text_box1"><br>
+        <label for="text_box2">Lastname:</label>
+        <input class="form" type="text" id="text_box2"><br>
+        <label for="text_box3">Phone:</label>
+        <input class="form" type="number" id="text_box3"><br>
+        <label for="select_box">Gender:</label>
+        <select class="form" id="select_box">
+            <option>male</option>
+            <option>female</option>
+        </select><br>
+        <label for="textarea">Address:</label>
+        <textarea class="form" id="textarea" rows="10" cols="30">Enter your address here ...</textarea>
+        <button class="button"> submit </button>
+    </form>
+</div>
+</body>
+</html>

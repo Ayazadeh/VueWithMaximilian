@@ -1,0 +1,33 @@
+{% extends 'master_page.html' %}
+{% block head %}
+    <style>
+        img {
+            background-image: url('1.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            min-height: 50%;
+            position: relative;
+            filter: grayscale(50%);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    {% macro nav_link(endpoint, name) %}
+        {% if request.endpoint.endswith(endpoint) %}
+            <li class="active"><a href="{{ url_for(endpoint) }}">{{ name }}</a></li>
+        {% else %}
+            <li><a href="{{ url_for(endpoint) }}">{{ name }}</a></li>
+        {% endif %}
+    {% endmacro %}
+    <ul class="nav navbar-nav">
+        {{ nav_link('html', 'home') }}
+        {{ nav_link('index', 'index') }}
+    </ul>
+    <img src="1.jpg">
+    <div class="container">
+        <div class="d-flex justify-content-center" style="margin-top: 22%; color: black">
+            <h1 class="text-white"> the cafe </h1>
+        </div>
+    </div>
+{% endblock %}
