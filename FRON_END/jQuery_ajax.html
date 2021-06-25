@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>js</title>
     <style>
-        li{
+        li {
             border: 2px solid deepskyblue;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,6 @@
     </div>
     <div style="text-align: center">
         <h3 id="name"></h3>
-        <p id="name"></p>
         <p id="username"></p>
         <p id="phone"></p>
         <p id="email"></p>
@@ -27,17 +27,26 @@
     </div>
 </div>
 <script>
-    const users = {{ users | safe }};
-    let list = document.getElementById("list");
-    for (let i of users) {
-        let li1 = document.createElement("li");
-        li1 = list.appendChild(li1);
-        li1.innerText = `${i.firstname} ${i.lastname}`;
-        li1.setAttribute(`onclick`, `userClick(${i.id})`);
-    }
-</script>
-<script>
-    function userClick(id){
+
+    $.ajax({
+        url: "http://ma-web.ir/maktab52/users.json",
+        type: "GET",
+        success: function (response, status, xhr) {
+            console.log(response)
+            var users = response
+            let list = document.getElementById("list");
+            for (let i of users) {
+                let li1 = document.createElement("li");
+                li1 = list.appendChild(li1);
+                li1.innerText = `${i.firstname} ${i.lastname}`;
+                li1.setAttribute(`onclick`, `userClick(${JSON.stringify(users)}, ${i.id})`);
+                console.log(users);
+            }
+        }
+    })
+
+    function userClick(users, id){
+        console.log("func: ", users)
         for(var i of users){
             if (i.id == id) break;
         }
@@ -47,6 +56,11 @@
         document.getElementById("username").innerText = i.username;
         document.getElementById("type").innerText = i.type;
     }
+
+
+
+
 </script>
+
 </body>
 </html>
