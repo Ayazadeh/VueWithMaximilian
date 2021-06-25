@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mohammad</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="text-center">
+<script>
+    function generateTable(num){
+        $('#my-table').empty()
+        num = Number(num);
+        for(let i=1; i<=num; i++) {
+            let tr_elem = $('<tr></tr>').appendTo('#my-table')
+            for(let j=1; j<=num; j++){
+                tr_elem.append(`<td>${i * j}</td>`)
+            }
+        }
+    }
+    $(document).ready(function (){
+        $('#btn').click(function (){
+            generateTable($('#number').val())
+        })
+        $('#number').on('input', function (){
+
+        })
+    })
+</script>
+
+<input type="number" id="number">
+<button id="btn" class="btn btn-success">submit</button>
+<table id="my-table" class="table w-50 m-auto"></table>
+
+</body>
+</html>
