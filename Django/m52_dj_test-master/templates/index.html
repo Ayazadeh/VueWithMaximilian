@@ -1,0 +1,39 @@
+{% load poll_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question list</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+{#{% for i in '123456789' %}#}
+{#{{ 'REZA'|repeat:i }}<br>#}
+{#{% endfor %}#}
+
+{#{% my_tag 3 3 %}#}
+{% concat_strings 'akbar' 'asqar' 'kobra' 'soqra' %}
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Publish Date</th>
+        <th>Question text</th>
+    </tr>
+    {% for i in questions %}
+        <tr class="{% cycle 'bg-primary' 'bg-info' 'bg-success'%}">
+            <td>
+                {{ forloop.counter }}
+            </td>
+            <td>
+                {{ i.pub_datetime|date:'c' }}
+            </td>
+            <td>
+                <a href="{% url 'poll:detail' i.id %}">
+                {{ i }}
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
