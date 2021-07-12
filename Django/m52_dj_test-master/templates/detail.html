@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Detail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+{{ question.pub_datetime }}
+{{ question }}
+<table class="table">
+<tr>
+    <th>votes</th>
+    <th>Choice text</th>
+</tr>
+{% for choice in question.choice_set.all %}
+    <tr>
+    <td>{{ choice.votes }}</td>
+    <td>{{ choice.choice_text }}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
