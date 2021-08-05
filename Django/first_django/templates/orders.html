@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orders</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tr>
+                    <th>table number</th>
+                    <th>table status</th>
+                    <th>menu item</th>
+                    <th>number</th>
+                    <th>status</th>
+                    <th>deleted</th>
+                </tr>
+                {% for i in o %}
+                    <tr>
+                        <td>{{ i.table.table_number }}</td>
+                        <td>{{ i.table.status }}</td>
+                        <td><a href="{% url 'menu_items:detail' %}">{{ i.menu_items.name }}</a></td>
+                        <td>{{ i.number }}</td>
+                        <td>{{ i.status }}</td>
+                        <td>{{ i.deleted }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

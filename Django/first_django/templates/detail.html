@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tr>
+                    <th>name</th>
+                    <th>category</th>
+                    <th>price</th>
+                    <th>discount</th>
+                </tr>
+                {% for i in menu_item %}
+                    <tr>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.category.name }}</td>
+                        <td>{{ i.price.price }}</td>
+                        <td>{{ i.discount.amount }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
