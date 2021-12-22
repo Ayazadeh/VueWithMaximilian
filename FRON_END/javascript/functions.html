@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>functions</title>
+</head>
+<body>
+
+</body>
+<script>
+    function my_func() {
+        for (var i = 0; i < arguments.length; i++)
+        {
+            document.write(arguments[i] + "<br/>")
+        }
+    }
+    my_func(4, "mamad", true, 432);
+
+    function add()
+    {
+        var counter = 0;
+
+        function plus()
+        {
+            counter += 1;
+        }
+        plus();
+        plus();
+        return counter;
+    }
+    document.write("<br/><br/>" + add())
+</script>
+</html>

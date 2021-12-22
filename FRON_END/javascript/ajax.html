@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+
+
+</body>
+<script>
+    var request = new XMLHttpRequest();
+    request.open("GET", "data.txt", false);
+    request.send();
+    if (request.status === 200) {
+        console.log(request);
+        document.write(request.responseText)
+    } else {
+        console.log("error");
+    }
+
+</script>
+</html>

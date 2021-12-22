@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form_validator</title>
+</head>
+<body>
+
+Name: <input type="text" id="fname" required>
+<input type="button" value="Submit" onclick="my_func()"/>
+<p id="demo" style="color:red"></p>
+
+</body>
+<script>
+    let test_isNaN = "33";
+    console.log(isNaN(test_isNaN))
+
+    let test_isNaN1 = 33;
+    console.log(isNaN(test_isNaN1))
+
+    let test_isNaN2 = "mamad";
+    console.log(isNaN(test_isNaN2))
+
+    function my_func() {
+        var x, text;
+        x = document.getElementById('fname').value;
+
+        if (!isNaN(x)) {
+            text = "Input Not Valid";
+            document.getElementById("demo").innerHTML = text;
+            document.getElementById("demo").style.color = "red";
+
+        } else {
+            text = "Input Ok .";
+            document.getElementById("demo").innerHTML = text;
+            document.getElementById("demo").style.color = "green";
+        }
+    }
+
+    function Person(name, family, age) { // constructor
+        this.name = name;
+        this.family = family;
+        this.age = age;
+        this.full_name = function ()
+        {
+            return this.name + " " + this.family;
+        }
+    }
+
+    var mamad = new Person("mohammad", "ayazadeh", 23); // object from constructor
+
+    console.log(mamad)
+    console.log(mamad.name)
+    console.log(mamad.full_name())
+
+    mamad.carname = "Pride"; // prototype
+
+    console.log(mamad)
+
+</script>
+</html>

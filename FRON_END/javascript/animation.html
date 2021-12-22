@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <style>
+        #container {
+            width: 450px;
+            height: 450px;
+            position: relative;
+            background-color: yellow;
+        }
+
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<p id="time"></p>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="address"></p>
+<p id="protocol"></p>
+
+<button onclick="myFunc()">redirect to google</button>
+
+<p>
+    <button onclick="myMove()">Click Me !</button>
+</p>
+<div id="container">
+    <div id="animate"></div>
+</div>
+
+</body>
+<script>
+    document.getElementById("demo").innerHTML = "resulation width: " + screen.availWidth;
+    document.getElementById("demo1").innerHTML = "resulation height: " + screen.availHeight;
+
+    document.getElementById("address").innerHTML = "address" + window.location.href;
+    document.getElementById("protocol").innerHTML = "protocol: " + window.location.protocol;
+
+    // window.history.back()
+    // window.history.forward()
+
+    // prompt()
+
+    // setTimeout(myFunction, 4000)
+
+    // clearInterval()
+
+    var myTimer = setInterval(myFunction, 1000); // for show time on page
+    function myFunction() {
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.toLocaleTimeString();
+    }
+
+    function myFunc() {
+        window.location.assign("https://www.google.com")
+    }
+
+    function myMove() {
+        var elem = document.getElementById("animate");
+        var pos = 0;
+        var id = setInterval(frame, 1);
+
+        function frame() {
+            if (pos == 400) {
+                clearInterval(id);
+            } else {
+                pos++;
+                elem.style.top = pos + "px";
+                elem.style.left = pos + "px";
+            }
+        }
+
+        //
+        // function frame() {
+        //
+        //     if (pos < 400) {
+        //         pos++;
+        //         elem.style.left = pos + "px";
+        //     } else {
+        //         clearInterval(id)
+        //     }
+        // }
+    }
+</script>
+</html>
