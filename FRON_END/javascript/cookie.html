@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+<button onclick="check_cookie()">click me !</button>
+</body>
+<script>
+    debugger;
+    function set_cookie(name, value, exday) {
+        var d = new Date()
+        d.setTime(d.getTime() + (exday * 24 * 60 * 60 * 1000))
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    function get_cookie(name) {
+        var name = name + "=";
+        var decodeCookie = decodeURIComponent(document.cookie);
+        var cook = decodeCookie.split(';');
+        for (var i = 0; i < cook.length; i++) {
+            var c = cook[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function check_cookie() {
+        var user = get_cookie("username")
+        if (user != "") {
+            alert("Welcome again  " + user);
+        } else {
+            user = prompt("please enter your name", "");
+            if (user != "" && user != null) {
+                set_cookie('username', user, 3);
+            }
+        }
+    }
+
+</script>
+</html>
