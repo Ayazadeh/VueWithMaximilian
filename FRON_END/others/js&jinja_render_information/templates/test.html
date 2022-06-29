@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h2{
+            border: 2px solid blue;
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+     {% for i in users %}
+        <h2>{{ i['firstname'] }}</h2>
+
+     {% endfor %}
+</body>
+</html>
