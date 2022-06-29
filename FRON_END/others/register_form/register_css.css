@@ -1,0 +1,25 @@
+.card{
+    background-color: ghostwhite;
+    border: 5px outset #6969b5;
+    width: 30%;
+    height: 500px;
+    margin: auto;
+    box-shadow: 1px 4px 10px;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
+input, select, textarea{
+    border: 2px outset #027902;
+    border-radius: 8px;
+    width: 90%;
+    height: 10px;
+    padding: 10px;
+    margin-bottom: 12px;
+    box-shadow: 1px 1px 1px;
+}
+
+textarea{
+    height: 50px;
+}
