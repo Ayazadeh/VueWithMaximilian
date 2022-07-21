@@ -24,14 +24,23 @@
       <button v-on:click="counter--">Remove</button> -->
 
       <!-- logic in javascript -->
-      <!-- <button v-on:click="add">Add</button>
-      <button v-on:click="reduce">Reduce</button> -->
+      <!-- add & add() are the same -->
+      <!-- <button v-on:click="add">Add</button> -->
+      <!-- <button v-on:click="reduce">Reduce</button> -->
 
       <!-- methods with parameters -->
+      <!-- eventListener 'click' -->
       <button v-on:click="add(10)">Add 10</button>
       <button v-on:click="reduce(5)">Reduce 5</button>
-
       <p>Result: {{ counter }}</p>
+
+      <!-- eventListener 'input' -->
+      <!-- method without parameter that have one parameter always (event) -->
+
+      <!-- <input type="text" v-on:input="setName" /> -->
+      <input type="text" v-on:input="setName($event, 'ayazadeh')" />
+
+      <p>Your name: {{ name }}</p>
     </section>
   </body>
 </html>
