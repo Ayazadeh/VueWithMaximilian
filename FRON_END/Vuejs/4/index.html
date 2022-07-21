@@ -24,8 +24,12 @@
       <button v-on:click="counter--">Remove</button> -->
 
       <!-- logic in javascript -->
-      <button v-on:click="add">Add</button>
-      <button v-on:click="reduce">Reduce</button>
+      <!-- <button v-on:click="add">Add</button>
+      <button v-on:click="reduce">Reduce</button> -->
+
+      <!-- methods with parameters -->
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="reduce(5)">Reduce 5</button>
 
       <p>Result: {{ counter }}</p>
     </section>
