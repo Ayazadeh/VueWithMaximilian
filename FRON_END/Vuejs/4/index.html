@@ -38,9 +38,20 @@
       <!-- method without parameter that have one parameter always (event) -->
 
       <!-- <input type="text" v-on:input="setName" /> -->
-      <input type="text" v-on:input="setName($event, 'ayazadeh')" />
+      <!-- using modifier 'enter': we can use any key here -->
+      <!-- we can using multiple event 'v-on' on tag -->
+      <input
+        type="text"
+        v-on:input="setName($event, 'ayazadeh')"
+        v-on:keyup.enter="confirmInput"
+      />
+      <p>Your name: {{ confirmedName }}</p>
 
-      <p>Your name: {{ name }}</p>
+      <!-- modifier 'prevent' used so that the page does not reload -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" />
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>
