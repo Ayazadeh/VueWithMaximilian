@@ -41,12 +41,17 @@
       <!-- <input type="text" v-on:input="setName" /> -->
       <!-- using modifier 'enter', we can use any key here -->
       <!-- we can using multiple event 'v-on' on tag -->
-      <input
+      <!-- <input
         type="text"
         v-on:input="setName($event, 'ayazadeh')"
         v-on:keyup.enter="confirmInput"
-      />
-      <p>Your name: {{ confirmedName }}</p>
+      /> -->
+      <!-- <p>Your name: {{ confirmedName }}</p> -->
+
+      <!-- v-model is shortcut of v-bind:value="" & v-on:input="" -->
+      <input type="text" v-model="name" />
+      <button v-on:click="resetInput">Reset Input</button>
+      <p>Your name: {{ name }}</p>
 
       <!-- modifier 'prevent' used so that the page does not reload -->
       <form v-on:submit.prevent="submitForm">
