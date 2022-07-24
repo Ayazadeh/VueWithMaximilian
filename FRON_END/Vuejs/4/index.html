@@ -51,7 +51,9 @@
       <!-- v-model is shortcut of v-bind:value="" & v-on:input="" -->
       <input type="text" v-model="name" />
       <button v-on:click="resetInput">Reset Input</button>
-      <p>Your name: {{ name }}</p>
+      <!-- using the method in html code is not good a better way is to use the computed -->
+      <!-- <p>Your name: {{ outputFullname() }}</p> -->
+      <p>Your name: {{ fullname }}</p>
 
       <!-- modifier 'prevent' used so that the page does not reload -->
       <form v-on:submit.prevent="submitForm">
