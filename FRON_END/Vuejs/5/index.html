@@ -30,12 +30,17 @@
 
       <!-- boxClasses is a computed property  -->
       <div class="demo" :class="boxClasses" @click="boxSelected('A')"></div>
-
+<!-- 
       <div
         class="demo"
         :class="{active: boxBSelected}"
         @click="boxSelected('B')"
+      ></div> -->
+      <div
+        :class="['demo', {active: boxBSelected}]"
+        @click="boxSelected('B')"
       ></div>
+
       <div
         class="demo"
         :class="{active: boxCSelected}"
