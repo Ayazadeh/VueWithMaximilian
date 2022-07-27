@@ -28,11 +28,8 @@
         @click="boxSelected('A')"
       ></div> -->
 
-      <div
-        class="demo"
-        :class="{active: boxASelected}"
-        @click="boxSelected('A')"
-      ></div>
+      <!-- boxClasses is a computed property  -->
+      <div class="demo" :class="boxClasses" @click="boxSelected('A')"></div>
 
       <div
         class="demo"
