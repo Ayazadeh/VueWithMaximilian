@@ -6,6 +6,17 @@ const app = Vue.createApp({
       confirmedName: "",
     };
   },
+  watch: {
+    counter(value) {
+      console.log('watch')
+      if (value > 50) {
+        const that = this;
+        setTimeout(function () {
+          that.counter = 0;
+        }, 1000);
+      }
+    },
+  },
   computed: {
     fullname() {
       console.log("fullname...");
