@@ -1,41 +1,39 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: "Jost", sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 header {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    margin: 3rem;
-    border-radius: 10px;
-    padding: 1rem;
-    background-color: #4fc08d;
-    color: white;
-    text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #4fc08d;
+  color: white;
+  text-align: center;
 }
 
 #user-goals {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    margin: 3rem;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
 }
 
-.demo {
-    width: calc(100% - 32px);
-    height: 100px;
-    margin: 16px;
-    border: 2px dashed #ccc;
-}
-
-.active {
-    border-color: red;
-    background-color: salmon;
+li {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #4fc08d;
+  color: white;
+  text-align: center;
 }
