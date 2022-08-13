@@ -22,6 +22,8 @@
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
       <br>
       <p v-html="finishedLink"></p>
+      <br>
+      <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
     </div>
   </body>
 </html>
