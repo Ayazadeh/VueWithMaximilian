@@ -23,7 +23,9 @@
       <br>
       <p v-html="finishedLink"></p>
       <br>
-      <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+      <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
+        -<span v-on:mousemove.stop="">dead spot</span>
+      </p>
     </div>
   </body>
 </html>
