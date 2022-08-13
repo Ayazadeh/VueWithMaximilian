@@ -20,6 +20,8 @@
       <input type="text" @input="changeTitle" />
       <h1 v-once>{{ title }}</h1>
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+      <br>
+      <p v-html="finishedLink"></p>
     </div>
   </body>
 </html>
