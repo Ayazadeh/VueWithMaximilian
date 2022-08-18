@@ -9,6 +9,23 @@ new Vue({
     y: 0,
     counter: 0,
     message: "",
+    color: "",
+    attachRed: false,
+    width: 5
+  },
+  computed: {
+    divClasses() {
+      return {
+        red: this.attachRed,
+        blue: !this.attachRed,
+      };
+    },
+    myStyle() {
+      return{
+        backgroundColor: this.color,
+        width: this.width + 'rem'
+      }
+    },
   },
   methods: {
     changeTitle(event) {

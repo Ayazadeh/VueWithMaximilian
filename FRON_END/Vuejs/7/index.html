@@ -28,13 +28,27 @@
         <span v-on:mousemove.stop=""> dead spot </span>
       </p>
       <br />
-      <p>keyup.enter.space event | alert</p>
+      <p>@keyup.enter.space event | alert</p>
       <input type="text" @keyup.enter.space="alertMe" v-model="message" />
       <br />
       <h3>Writing JavaScript Code in the templates</h3>
       <button @click="counter++">Click me</button>
       <p>{{ counter }}</p>
       <p>{{ counter * 2 > 10 ? 'Greater than 10': 'Smaller than 10' }}</p>
+
+      <h4>Dynamic Styling :</h4>
+      <input type="text" v-model="color" placeholder="red, blue or green" />
+      <input type="text" v-model="width" placeholder="rem" />
+      <br />
+      <br />
+      <div class="demo" :class="color">1</div>
+      <div class="demo" @click="attachRed = !attachRed" :class="divClasses">
+        2 | click me
+      </div>
+      <div class="demo" :class="[color, {red: attachRed}]">3</div>
+      <div class="demo" :style="{backgroundColor: color}">4</div>
+      <div class="demo" :style="myStyle">5</div>
+      <div class="demo" :style="[myStyle, {height: width + 'rem'}]">6</div>
     </div>
   </body>
 </html>
