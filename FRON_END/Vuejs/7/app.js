@@ -7,6 +7,7 @@ new Vue({
     finishedLink: '<a href="http://google.com">Google</a>',
     x: 0,
     y: 0,
+    counter: 0,
   },
   methods: {
     changeTitle(event) {
@@ -20,6 +21,9 @@ new Vue({
     updateCoordinates(event) {
       this.x = event.clientX;
       this.y = event.clientY;
+    },
+    alertMe() {
+      alert("alert!");
     },
   },
 });

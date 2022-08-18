@@ -20,12 +20,21 @@
       <input type="text" @input="changeTitle" />
       <h1 v-once>{{ title }}</h1>
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
-      <br>
+      <br />
+
+      <h3>Writing JavaScript Code in the templates</h2>
+      <button @click="counter++">
+        Click me
+      </button>
+      <p>{{ counter * 2 > 10 ? 'Greater than 10': 'Smaller than 10' }}</p>
+
       <p v-html="finishedLink"></p>
-      <br>
-      <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
-        -<span v-on:mousemove.stop="">dead spot</span>
+      <br />
+      <p v-on:mousemove="updateCoordinates">
+        Coordinates: {{ x }} / {{ y }} -
+        <span v-on:mousemove.stop=""> dead spot </span>
       </p>
+      <input type="text" @keyup.enter.space="alertMe" />
     </div>
   </body>
 </html>
