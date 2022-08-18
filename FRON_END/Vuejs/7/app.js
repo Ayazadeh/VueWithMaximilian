@@ -8,6 +8,7 @@ new Vue({
     x: 0,
     y: 0,
     counter: 0,
+    message: "",
   },
   methods: {
     changeTitle(event) {
@@ -23,7 +24,7 @@ new Vue({
       this.y = event.clientY;
     },
     alertMe() {
-      alert("alert!");
+      alert(this.message);
     },
   },
 });
