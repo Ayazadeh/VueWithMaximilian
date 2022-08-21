@@ -49,6 +49,19 @@
       <div class="demo" :style="{backgroundColor: color}">4</div>
       <div class="demo" :style="myStyle">5</div>
       <div class="demo" :style="[myStyle, {height: width + 'rem'}]">6</div>
+      <br />
+      
+      <!-- object in v-for loop -->
+      <ul>
+        <li v-for="person in persons">
+          <div v-for="(value, key, index) in person">
+            {{ key }}: {{ value }} ({{ index }})
+          </div>
+        </li>
+      </ul>
+
+      <!-- print 1 to 10 by v-for -->
+      <span v-for="n in 10">{{ n }}</span>
     </div>
   </body>
 </html>

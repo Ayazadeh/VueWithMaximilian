@@ -11,7 +11,11 @@ new Vue({
     message: "",
     color: "",
     attachRed: false,
-    width: 5
+    width: 5,
+    persons:[
+      {name: 'Max', age: 23, color: 'blue'},
+      {name: 'Anna', age: 20, color: 'green'},
+    ]
   },
   computed: {
     divClasses() {
