@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <script src="../vue.js"></script>
-    <script src="app.js" defer></script>
   </head>
   <body>
     <div id="app">
@@ -17,7 +16,10 @@
             <div
               class="healthbar text-center"
               style="background-color: green; margin: 0; color: white"
-            ></div>
+              :style="{width: playerHealth + '%'}"
+            >
+              {{ playerHealth }}
+            </div>
           </div>
         </div>
         <div class="small-6 columns">
@@ -26,16 +28,24 @@
             <div
               class="healthbar text-center"
               style="background-color: green; margin: 0; color: white"
-            ></div>
+              :style="{width: monsterHealth + '%'}"
+            >
+              {{ monsterHealth }}
+            </div>
           </div>
         </div>
       </section>
-      <section class="row controls">
+      <section class="row controls" v-if="!gameIsRunning">
         <div class="small-12 columns">
-          <button id="attack">ATTACK</button>
-          <button id="special-attack">SPECIAL ATTACK</button>
-          <button id="heal">HEAL</button>
-          <button id="give-up">GIVE UP</button>
+          <button id="start-game" @click="startGame">START NEW GAME</button>
+        </div>
+      </section>
+      <section class="row controls" v-else>
+        <div class="small-12 columns">
+          <button id="attack" @click="attack">ATTACK</button>
+          <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+          <button id="heal" @click="heal">HEAL</button>
+          <button id="give-up" @click="giveUp">GIVE UP</button>
         </div>
       </section>
       <section class="row log">
@@ -46,5 +56,6 @@
         </div>
       </section>
     </div>
+    <script src="app.js" defer></script>
   </body>
 </html>
