@@ -2,7 +2,5 @@
 ## first project with Vuejs
 
 
-
-
-https://user-images.githubusercontent.com/80272331/187188623-9ada68fc-58e0-4b3a-8867-f1f65466f3dc.mp4
+https://user-images.githubusercontent.com/80272331/187189273-09ff917d-a8de-4b41-8846-6500c350747c.mp4
 
