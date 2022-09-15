@@ -1,6 +1,6 @@
 <template>
 
-    <app-server-status/>
+    <app-servers/>
   
 </template>
 

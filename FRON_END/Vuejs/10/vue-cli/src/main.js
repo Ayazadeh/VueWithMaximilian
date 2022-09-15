@@ -4,7 +4,9 @@ import Vue from "vue";
 import App from "./App";
 import Home from "./components/Home";
 Vue.config.productionTip = false;
-Vue.component("app-server-status", Home);
+
+// global component
+Vue.component("app-servers", Home);
 
 /* eslint-disable no-new */
 new Vue({
