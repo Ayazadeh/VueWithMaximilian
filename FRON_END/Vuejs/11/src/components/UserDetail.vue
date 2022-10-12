@@ -7,7 +7,8 @@
 </template>
 <script>
 export default {
-    
+    name: "UserDetail",
+    props: ['name']
 }
 </script>
 
