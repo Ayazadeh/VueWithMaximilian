@@ -5,11 +5,32 @@
     <p>User Name: {{ myName }}</p>
     <p>User Name Reverse: {{ switchName() }}</p>
     <button @click="resetName">Reset Name</button>
+    <button @click="resetFn()">Reset Name</button>
+    <div >{{ Function }}</div>
   </div>
 </template>
 <script>
 export default {
   name: "UserDetail",
+  props: {
+    myName: {
+      type: String,
+      default: "Max"
+    },
+    resetFn: Function
+  },
+  methods: {
+    switchName() {
+      return this.myName
+        .split("")
+        .reverse()
+        .join("");
+    },
+    resetName() {
+      this.myName = "black cat";
+      this.$emit("nameWasReset", this.myName);
+    }
+  }
 
   //   props: ["myName"],
 
@@ -37,25 +58,6 @@ export default {
   //     }
   //   }
   // },
-
-  props: {
-    myName: {
-      type: String,
-      default: "Max"
-    }
-  },
-  methods: {
-    switchName() {
-      return this.myName
-        .split("")
-        .reverse()
-        .join("");
-    },
-    resetName() {
-      this.myName = "black cat";
-      this.$emit("nameWasReset", this.myName);
-    }
-  }
 };
 </script>
 
