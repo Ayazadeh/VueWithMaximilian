@@ -4,6 +4,7 @@
     <p>Many Details</p>
     <p>User Name: {{ myName }}</p>
     <p>User Name Reverse: {{ switchName() }}</p>
+    <button @click="resetName">Reset Name</button>
   </div>
 </template>
 <script>
@@ -49,6 +50,10 @@ export default {
         .split("")
         .reverse()
         .join("");
+    },
+    resetName() {
+      this.myName = "black cat";
+      this.$emit("nameWasReset", this.myName);
     }
   }
 };
