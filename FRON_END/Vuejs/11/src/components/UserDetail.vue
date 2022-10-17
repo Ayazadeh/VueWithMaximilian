@@ -4,8 +4,9 @@
     <p>Many Details</p>
     <p>User Name: {{ myName }}</p>
     <p>User Name Reverse: {{ switchName() }}</p>
-    <button @click="resetName">Reset Name</button>
-    <button @click="resetFn()">Reset Name</button>
+    <p>User Age: {{ userAge }}</p>
+    <button @click="resetName">Reset Name by custom event</button>
+    <button @click="resetFn()">Reset Name by callback func</button>
     <div >{{ Function }}</div>
   </div>
 </template>
@@ -17,7 +18,8 @@ export default {
       type: String,
       default: "Max"
     },
-    resetFn: Function
+    resetFn: Function,
+    userAge: Number
   },
   methods: {
     switchName() {
@@ -28,6 +30,7 @@ export default {
     },
     resetName() {
       this.myName = "black cat";
+      // custome event
       this.$emit("nameWasReset", this.myName);
     }
   }
