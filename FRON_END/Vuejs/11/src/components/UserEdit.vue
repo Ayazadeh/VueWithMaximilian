@@ -1,5 +1,6 @@
 <template>
   <div class="component">
+    <h1 style="text-align: center">UserEdit</h1>
     <h3>You may edit the User here</h3>
     <p>Edit me!</p>
     <p>َUser Age: {{ userAge }}</p>
@@ -8,13 +9,16 @@
   </div>
 </template>
 <script>
+import { eventBus } from "../main";
+
 export default {
   props: ["userAge", "userEditAge"],
   methods: {
     editAge() {
       this.userAge = 24;
       // custome event
-      this.$emit("ageWasEdited", this.userAge);
+      // this.$emit("ageWasEdited", this.userAge);
+      eventBus.$emit("ageWasEdited", this.userAge);
     }
   }
 };

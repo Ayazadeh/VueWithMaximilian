@@ -38,17 +38,17 @@ export default {
   },
   data() {
     return {
-      name: "Mohammad",
+      name: "User",
       age: 27
     };
   },
   methods: {
     changeName() {
-      this.name = "Ayazadeh";
+      this.name = "User changeName func";
     },
     resetName() {
       // callback func
-      this.name = "Mohammad";
+      this.name = "User resetName func";
     },
     editAge() {
       // callback func

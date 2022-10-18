@@ -1,5 +1,6 @@
 <template>
   <div class="component">
+    <h1 style="text-align: center">UserDetail</h1>
     <h3>You may view the User Details here</h3>
     <p>Many Details</p>
     <p>User Name: {{ myName }}</p>
@@ -7,10 +8,12 @@
     <p>User Age: {{ userAge }}</p>
     <button @click="resetName">Reset Name by custom event</button>
     <button @click="resetFn()">Reset Name by callback func</button>
-    <div >{{ Function }}</div>
+    <div>{{ Function }}</div>
   </div>
 </template>
 <script>
+import { eventBus } from "../main";
+
 export default {
   name: "UserDetail",
   props: {
@@ -29,10 +32,15 @@ export default {
         .join("");
     },
     resetName() {
-      this.myName = "black cat";
+      this.myName = "userDetail resetName func";
       // custome event
       this.$emit("nameWasReset", this.myName);
     }
+  },
+  created() {
+    eventBus.$on("ageWasEdited", age => {
+      this.userAge = age;
+    });
   }
 
   //   props: ["myName"],
