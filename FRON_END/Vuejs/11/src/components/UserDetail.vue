@@ -8,7 +8,6 @@
     <p>User Age: {{ userAge }}</p>
     <button @click="resetName">Reset Name by custom event</button>
     <button @click="resetFn()">Reset Name by callback func</button>
-    <div>{{ Function }}</div>
   </div>
 </template>
 <script>
