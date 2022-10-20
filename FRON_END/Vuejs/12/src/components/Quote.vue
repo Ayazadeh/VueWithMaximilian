@@ -2,12 +2,16 @@
 <template>
   <div>
     <p>{{ quote }}</p>
+
+    <!-- Use of slots -->
+    <slot></slot>
+    
   </div>
 </template>
 <script>
 export default {
-  name: "User",
-  props: ['quote'],
+  name: "Quote",
+  props: ["quote"],
   data() {
     return {};
   },
