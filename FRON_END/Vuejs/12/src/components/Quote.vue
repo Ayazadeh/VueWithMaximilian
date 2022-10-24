@@ -2,12 +2,12 @@
 <template>
   <div>
     <div class="title">
-      <!-- Use of slots -->
+      <!-- Use of slot with name -->
       <slot name="title"></slot>
     </div>
     <hr class="hr" />
     <div>
-      <!-- Use of slots -->
+      <!-- Use of slot with name -->
       <slot name="content"></slot>
     </div>
   </div>
