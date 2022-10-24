@@ -1,10 +1,15 @@
 <!-- parent component -->
 <template>
   <div>
-    <p>{{ quote }}</p>
-
-    <!-- Use of slots -->
-    <slot></slot>
+    <div class="title">
+      <!-- Use of slots -->
+      <slot name="title"></slot>
+    </div>
+    <hr class="hr" />
+    <div>
+      <!-- Use of slots -->
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 <script>
@@ -28,5 +33,12 @@ div {
 
 h2 {
   color: red;
+}
+
+.title {
+  font-style: italic;
+}
+.hr {
+  border-color: gray;
 }
 </style>
