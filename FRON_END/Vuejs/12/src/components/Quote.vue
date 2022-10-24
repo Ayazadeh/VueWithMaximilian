@@ -4,6 +4,10 @@
     <div class="title">
       <!-- Use of slot with name -->
       <slot name="title"></slot>
+      <span style="color: #ccc">
+        <!-- we can define a default value for slot -->
+        <slot name="subtitle">The Subtitle</slot>
+      </span>
     </div>
     <hr class="hr" />
     <div>

@@ -5,6 +5,7 @@
         <app-quote quote="A wonderful quote!">
           <h2 slot="title">{{ quoteTitle }}</h2> 
           <p slot="content">A wonderful Quote</p></p>
+          <p slot="subtitle">subtitle from parent</p>
         </app-quote>
       </div>
     </div>
