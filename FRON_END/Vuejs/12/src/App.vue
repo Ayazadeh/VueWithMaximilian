@@ -5,12 +5,16 @@
         <button @click="selectedComponent = 'appQuote'">Quote</button>
         <button @click="selectedComponent = 'appAuthor'">Author</button>
         <button @click="selectedComponent = 'appNew'">New</button>
-        <hr/>
-        
+        <hr />
+
         <!-- dynamic compponent -->
-        <component :is="selectedComponent">
-          <p>Default Content</p>
-        </component>
+        <!-- Keeping Dynamic Components Alive -->
+        <!-- keep-alive: prevent from  components destroy when we navigate in those -->
+        <keep-alive>
+          <component :is="selectedComponent">
+            <p>Default Content</p>
+          </component>
+        </keep-alive>
 
         <!-- <app-quote quote="A wonderful quote!">
           <h2 slot="title">{{ quoteTitle }}</h2> 
@@ -30,13 +34,13 @@ export default {
   components: {
     appQuote: Quote,
     appAuthor: Author,
-    appNew: New,
+    appNew: New
   },
-  data(){
-    return{
-      quoteTitle: 'The Quote',
-      selectedComponent: 'appQuote'
-    }
+  data() {
+    return {
+      quoteTitle: "The Quote",
+      selectedComponent: "appQuote"
+    };
   }
 };
 </script>
