@@ -19,6 +19,16 @@ export default {
     // Understanding Dynamic Component Behavior
     // when we change component, component will be destroyed & recreated
     console.log("Destroyed!");
+  },
+
+  // when we wrap component with keep-alive tag,
+  // destroyed hook not working any more,
+  // so we must using the deactivated & activated hook alternative
+  deactivated() {
+    console.log("Deactivated!");
+  },
+  activated() {
+    console.log("Activated!");
   }
 };
 </script>
