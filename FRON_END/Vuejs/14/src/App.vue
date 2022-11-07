@@ -24,9 +24,9 @@
               class="form-control"
               v-model.lazy="userData.password"
             />
-          {{ userData.password }}
+            {{ userData.password }}
           </div>
-          <div class="form-group">  
+          <div class="form-group">
             <label for="age">Age</label>
             <input
               type="number"
@@ -43,7 +43,12 @@
         >
           <label for="message">Message</label>
           <!-- Interpolation between <textarea>{{ test }}</textarea> doesn't work! -->
-          <textarea id="message" rows="5" class="form-control"></textarea>
+          <textarea
+            id="message"
+            rows="5"
+            class="form-control"
+            v-model="message"
+          ></textarea>
         </div>
       </div>
       <div class="row">
@@ -106,7 +111,7 @@
             <p>Mail:{{ userData.email }}</p>
             <p>Password: {{ userData.password }}</p>
             <p>Age:{{ userData.age }}</p>
-            <p>Message:</p>
+            <p style="white-space: pre">Message: {{ message }}</p>
             <p><strong>Send Mail?</strong></p>
             <ul>
               <li></li>
@@ -130,7 +135,8 @@ export default {
         email: "",
         password: "",
         age: 22
-      }
+      },
+      message: "A Text Message"
     };
   }
 };
