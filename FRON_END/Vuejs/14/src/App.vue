@@ -9,11 +9,22 @@
           <hr />
           <div class="form-group">
             <label for="email">Mail</label>
+
+            <!-- <input
+              type="text"
+              id="email"
+              class="form-control"
+              v-model="userData.email" 
+            /> -->
+
+            <!-- The following code showing us, how work 'v-model' behind the scene -->
+
             <input
               type="text"
               id="email"
               class="form-control"
-              v-model="userData.email"
+              :value="userData.email"
+              @input="userData.email = $event.target.value"
             />
           </div>
           <div class="form-group">
