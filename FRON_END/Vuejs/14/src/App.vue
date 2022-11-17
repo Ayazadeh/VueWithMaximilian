@@ -125,12 +125,14 @@
         <div
           class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-affset-3 form-group"
         >
-          <button class="btn btn-primary">Submit!</button>
+          <button class="btn btn-primary" @click.prevent="submitted">
+            Submit!
+          </button>
         </div>
       </div>
     </form>
     <hr />
-    <div class="row">
+    <div class="row" v-if="isSubmitted">
       <div
         class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-affset-3 form-group"
       >
@@ -174,8 +176,14 @@ export default {
       gender: "Male",
       selectedPriority: "High",
       priorities: ["High", "Medium", "Low"],
-      dataSwitch: true
+      dataSwitch: true,
+      isSubmitted: false
     };
+  },
+  methods: {
+    submitted() {
+      this.isSubmitted = true;
+    }
   }
 };
 </script>
