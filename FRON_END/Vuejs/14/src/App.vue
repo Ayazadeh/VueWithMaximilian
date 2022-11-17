@@ -17,7 +17,7 @@
               v-model="userData.email" 
             /> -->
 
-            <!-- The following code showing us, how work 'v-model' behind the scene -->
+            <!-- The following code showing us, what 'v-model' does  behind the scene. -->
 
             <input
               type="text"
@@ -113,6 +113,13 @@
           </select>
         </div>
       </div>
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
+        >
+          <app-switch v-model="dataSwitch"></app-switch>
+        </div>
+      </div>
       <hr />
       <div class="row">
         <div
@@ -142,7 +149,7 @@
             </ul>
             <p>Gender: {{ gender }}</p>
             <p>Priority: {{ selectedPriority }}</p>
-            <p>Switched:</p>
+            <p>Switched: {{ dataSwitch }}</p>
           </div>
         </div>
       </div>
@@ -151,8 +158,10 @@
 </template>
 
 <script>
+import Switch from "@/components/Switch";
 export default {
   name: "App",
+  components: { appSwitch: Switch },
   data() {
     return {
       userData: {
@@ -164,7 +173,8 @@ export default {
       sendMail: [],
       gender: "Male",
       selectedPriority: "High",
-      priorities: ["High", "Medium", "Low"]
+      priorities: ["High", "Medium", "Low"],
+      dataSwitch: true
     };
   }
 };
