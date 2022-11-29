@@ -1,6 +1,21 @@
 <template>
   <div id="app">
-    
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-affset-2 col-md-6 col-md-offset-3">
+          <h1>Built-in Directives</h1>
+          <!-- Directives are v-text, v-html, v-if, v-for, ... ( v- everything ) -->
+          <p v-text="'Some Text'"></p>
+          <p v-html="'<strong>Some strong Text</strong>'"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-affset-2 col-md-6 col-md-offset-3">
+          <h1>Custom Directives</h1>
+          <!-- Created Global Directive in main.js -->
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
