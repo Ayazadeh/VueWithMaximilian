@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-affset-2 col-md-6 col-md-offset-3">
-          <h1>Custom Directives</h1>
+          <h1 v-highlight>Custom Directives</h1>
           <!-- Created Global Directive in main.js -->
         </div>
       </div>
