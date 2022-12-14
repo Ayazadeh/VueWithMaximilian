@@ -15,7 +15,7 @@
         <div
           class="col-xs-12 col-sm-8 col-sm-affset-2 col-md-6 col-md-offset-3"
         >
-          <h1 v-highlight:background="'lightblue'">Custom Directives</h1>
+          <h1 v-highlight:background.delayed="'lightblue'">Custom Directives</h1>
           <!-- an argument passed with a colon ( v-highlight:arg="") -->
           <!-- Created Global Directive in main.js -->
           <!-- whatever we enter here ( v-highlight="''" )

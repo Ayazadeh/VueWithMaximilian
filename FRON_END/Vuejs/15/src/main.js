@@ -1,4 +1,4 @@
-import Vue from "vue";
+import Vue, { del } from "vue";
 import App from "./App.vue";
 
 Vue.config.productionTip = false;
@@ -33,11 +33,20 @@ Vue.directive("highlight", {
   bind(el, binding, vnode) {
     // el.style.backgroundColor = "green";
     // el.style.backgroundColor = binding.value;
-    if (binding.arg == "background") {
-      el.style.backgroundColor = binding.value;
-    } else {
-      el.style.color = binding.value;
+    var delay = 0;
+    if (binding.modifiers["delayed"]) {
+      // set modifier to v-highlight => v-highlight:background.delayed(modifier)
+      delay = 3000;
     }
+    setTimeout(() => {
+      if (binding.arg == "background") {
+        // set argument to v-highlight => v-highlight:background(argument)
+        el.style.backgroundColor = binding.value;
+      } else {
+        // fetch String value from binding object => v-highlight="'value'"
+        el.style.color = binding.value;
+      }
+    }, delay);
   },
 });
 
