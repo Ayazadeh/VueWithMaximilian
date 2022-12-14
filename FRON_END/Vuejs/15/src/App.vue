@@ -6,7 +6,7 @@
           class="col-xs-12 col-sm-8 col-sm-affset-2 col-md-6 col-md-offset-3"
         >
           <h1>Built-in Directives</h1>
-          <!-- Directives are v-text, v-html, v-if, v-for, ... ( v- everything ) -->
+          <!-- Directives are v-text, v-html, v-if, v-for,... ( v- everything ) -->
           <p v-text="'Some Text'"></p>
           <p v-html="'<strong>Some strong Text</strong>'"></p>
         </div>
@@ -15,7 +15,8 @@
         <div
           class="col-xs-12 col-sm-8 col-sm-affset-2 col-md-6 col-md-offset-3"
         >
-          <h1 v-highlight="'lightblue'">Custom Directives</h1>
+          <h1 v-highlight:background="'lightblue'">Custom Directives</h1>
+          <!-- an argument passed with a colon ( v-highlight:arg="") -->
           <!-- Created Global Directive in main.js -->
           <!-- whatever we enter here ( v-highlight="''" )
              between the quotation marks is the value of the binding  -->
