@@ -27,7 +27,7 @@
            -->
 
           <!---- ----- using local directive ----- ---->
-          <h4 v-local-highlight:delayed.blink="'red'">
+          <h4 v-local-highlight:background.delayed.blink="{mainColor: 'red', secondColor: 'green', delay: 500}">
             Custom Local Directives (v-local-highlight)
           </h4>
         </div>
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { del } from 'vue';
+
 export default {
   name: "App",
   // Registering a Local Directive
@@ -51,8 +53,8 @@ export default {
         }
 
         if (binding.modifiers["blink"]) {
-          let mainColor = binding.value;
-          let secondColor = "blue";
+          let mainColor = binding.value.mainColor;
+          let secondColor = binding.value.secondColor;
           let currentColor = mainColor;
 
           setTimeout(() => {
@@ -68,7 +70,7 @@ export default {
                 // fetch String value from binding object => v-local-highlight="'value'"
                 el.style.color = currentColor;
               }
-            }, 1000);
+            }, binding.value.delay);
           }, delay);
         } else {
           setTimeout(() => {
