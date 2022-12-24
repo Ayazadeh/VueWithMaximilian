@@ -1,12 +1,28 @@
 <template>
   <div id="app">
+    <div class="row">
+      <div class="col-sx-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Filtters & Mixins</h1>
+        <p>{{ text | toUppercase }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-}
+  name: "App",
+  data() {
+    return {
+      text: "Hello there!",
+    };
+  },
+  filters: {
+    toUppercase(value) {
+      return value.toUpperCase();
+    },
+  },
+};
 </script>
 
 <style>
