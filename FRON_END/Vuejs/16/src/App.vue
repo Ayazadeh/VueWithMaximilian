@@ -9,6 +9,7 @@
         <!-- globally filter & chain them -->
         <p>{{ text | toUppercase | toLowercase }}</p>
         <hr />
+        <!-- Using Computed Property Instead Filters -->
         <input v-model="filterText" />
         <ul>
           <li v-for="fruit in filteredFruits">{{ fruit }}</li>
