@@ -34,8 +34,8 @@ export default {
     },
   },
   computed: {
-    filteredFruits(list) {
-      return list.filter((element) => {
+    filteredFruits() {
+      return this.fruits.filter((element) => {
         return element.toLowerCase().match(this.filterText)
       })
     },
