@@ -1,4 +1,4 @@
 # Vue course with Maximilian Schwarzmuller
 
 
-![ndsmpb4j2hvj](https://user-images.githubusercontent.com/80272331/211136356-8c026049-79c6-4541-9ee6-5d824e36076b.jpeg)
+![Screenshot (54)](https://user-images.githubusercontent.com/80272331/211138922-1315ce76-b1b8-4af7-8126-f534214e3fe3.png)
