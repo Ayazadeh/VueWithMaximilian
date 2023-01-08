@@ -1,0 +1,67 @@
+<!-- Vue 2 -> part 1 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJS</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <script src="https://unpkg.com/vue@2.7.8/dist/vue" defer></script> -->
+    <script src="../vue.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" @input="changeTitle" />
+      <h1 v-once>{{ title }}</h1>
+      <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+
+      <p v-html="finishedLink"></p>
+      <br />
+      <p v-on:mousemove="updateCoordinates">
+        Coordinates: {{ x }} / {{ y }} -
+        <span v-on:mousemove.stop=""> dead spot </span>
+      </p>
+      <br />
+      <p>@keyup.enter.space event | alert</p>
+      <input type="text" @keyup.enter.space="alertMe" v-model="message" />
+      <br />
+      <h3>Writing JavaScript Code in the templates</h3>
+      <button @click="counter++">Click me</button>
+      <p>{{ counter }}</p>
+      <p>{{ counter * 2 > 10 ? 'Greater than 10': 'Smaller than 10' }}</p>
+
+      <h4>Dynamic Styling :</h4>
+      <input type="text" v-model="color" placeholder="red, blue or green" />
+      <input type="text" v-model="width" placeholder="rem" />
+      <br />
+      <br />
+      <div class="demo" :class="color">1</div>
+      <div class="demo" @click="attachRed = !attachRed" :class="divClasses">
+        2 | click me
+      </div>
+      <div class="demo" :class="[color, {red: attachRed}]">3</div>
+      <div class="demo" :style="{backgroundColor: color}">4</div>
+      <div class="demo" :style="myStyle">5</div>
+      <div class="demo" :style="[myStyle, {height: width + 'rem'}]">6</div>
+      <br />
+      
+      <!-- object in v-for loop -->
+      <ul>
+        <li v-for="person in persons">
+          <div v-for="(value, key, index) in person">
+            {{ key }}: {{ value }} ({{ index }})
+          </div>
+        </li>
+      </ul>
+
+      <!-- print 1 to 10 by v-for -->
+      <span v-for="n in 10">{{ n }}</span>
+    </div>
+  </body>
+</html>

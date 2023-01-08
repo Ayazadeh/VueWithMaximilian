@@ -1,0 +1,16 @@
+<!-- Vue 2 -> part 1 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="../vue.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <button @click="title = 'Changed'">Update Title</button>
+      <button @click="destroy">Destroy</button>
+    </div>
+  </body>
+</html>
