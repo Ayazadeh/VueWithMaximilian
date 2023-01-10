@@ -1,0 +1,13 @@
+	
+package 
+    "@ckeditor/ckeditor5-vue2": "^1.0.5",
+
+10:13 AM
+
+
+
+nuxt config plugins
+    {
+      src: '~/node_modules/@ckeditor/ckeditor5-vue2/dist/ckeditor.js',
+      mode: 'client',
+    },
