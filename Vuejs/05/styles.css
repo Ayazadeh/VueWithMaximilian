@@ -11,28 +11,28 @@ body {
 }
 
 header {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 3rem;
-  border-radius: 10px;
   padding: 1rem;
-  background-color: #4fc08d;
   color: white;
   text-align: center;
+  border-radius: 10px;
+  background-color: #4fc08d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 #styling {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 3rem;
-  border-radius: 10px;
   padding: 1rem;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 .demo {
-  width: calc(100% - 32px);
-  height: 100px;
   margin: 16px;
-  border: 2px dashed #ccc;
+  height: 100px;
+  width: calc(100% - 32px);
+  border: 2px dashed #cccccc;
 }
 
 .active {
