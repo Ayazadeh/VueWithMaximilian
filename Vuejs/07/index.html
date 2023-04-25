@@ -24,21 +24,25 @@
         and does not allow its value to be changed again
        -->
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
-
+      <!-- we can use HTML Tag in variables and show it by using 'v-html' -->
       <p v-html="finishedLink"></p>
       <br />
-      <p v-on:mousemove="updateCoordinates">
+      <p
+        v-on:mousemove="updateCoordinates"
+        style="background: greenyellow; height: 5rem"
+      >
         Coordinates: {{ x }} / {{ y }} -
         <span v-on:mousemove.stop=""> dead spot </span>
       </p>
       <br />
       <p>@keyup.enter.space event | alert</p>
-      <input type="text" @keyup.enter.space="alertMe" v-model="message" />
+      <input type="text" @keyup.enter.control="alertMe" v-model="message" />
       <br />
       <h3>Writing JavaScript Code in the templates</h3>
       <button @click="counter++">Click me</button>
       <p>{{ counter }}</p>
-      <p>{{ counter * 2 > 10 ? 'Greater than 10': 'Smaller than 10' }}</p>
+      <p>if {{ counter }} * 2 > 10 is true so {{ counter * 2 }}
+      {{ counter * 2 > 10 ? 'Greater than 10': 'Smaller than 10' }}</p>
 
       <h4>Dynamic Styling :</h4>
       <input type="text" v-model="color" placeholder="red, blue or green" />

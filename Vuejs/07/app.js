@@ -44,8 +44,8 @@ new Vue({
       this.x = event.clientX;
       this.y = event.clientY;
     },
-    alertMe() {
-      alert(this.message);
+    alertMe(event) {
+      alert(this.message + "\n\n" + event.key);
     },
   },
 });
