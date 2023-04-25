@@ -19,6 +19,10 @@
     <div id="app">
       <input type="text" @input="changeTitle" />
       <h1 v-once>{{ title }}</h1>
+      <!-- 
+        "v-once" displays the initial value of the variable 
+        and does not allow its value to be changed again
+       -->
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
 
       <p v-html="finishedLink"></p>
@@ -50,7 +54,7 @@
       <div class="demo" :style="myStyle">5</div>
       <div class="demo" :style="[myStyle, {height: width + 'rem'}]">6</div>
       <br />
-      
+
       <!-- object in v-for loop -->
       <ul>
         <li v-for="person in persons">
