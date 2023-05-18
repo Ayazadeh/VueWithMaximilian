@@ -36,7 +36,7 @@ div {
 }
 
 h2 {
-  color: red;
+  color: green;
 }
 
 .title {
