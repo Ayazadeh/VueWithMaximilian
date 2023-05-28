@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: "Switch",
   props: ["value"],
   methods: {
     switched(isOn) {
