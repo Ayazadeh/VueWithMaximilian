@@ -12,7 +12,7 @@
         <!-- Using Computed Property Instead Filters -->
         <input v-model="filterText" />
         <ul>
-          <li v-for="fruit in filteredFruits">{{ fruit }}</li>
+          <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
         </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@ export default {
   computed: {
     filteredFruits() {
       return this.fruits.filter((element) => {
-        return element.toLowerCase().match(this.filterText)
+        return element.toLowerCase().match(this.filterText.toLowerCase())
       })
     },
   },

@@ -1,18 +1,23 @@
-# Improving your App with Filters and Mixins [VUE2][UdemyIran.Com]
+# 16
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run dev
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
 ```
 
 ### Customize configuration
