@@ -14,19 +14,27 @@
         <ul>
           <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
         </ul>
+        <app-list />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import FruitsList from "./FruitsList.vue";
+import { fruitMixin } from "./fruitMixin";
+
 export default {
   name: "App",
+  mixins: [fruitMixin], // using mixins to Avoid code duplication
+  components: {
+    appList: FruitsList,
+  },
   data() {
     return {
       text: "Hello there!",
-      fruits: ["Apple", "Banana", "Mango", "Melon"],
-      filterText: "",
+      // fruits: ["Apple", "Banana", "Mango", "Melon"],
+      // filterText: "",
     };
   },
   filters: {
@@ -34,13 +42,13 @@ export default {
       return value.toUpperCase();
     },
   },
-  computed: {
-    filteredFruits() {
-      return this.fruits.filter((element) => {
-        return element.toLowerCase().match(this.filterText.toLowerCase())
-      })
-    },
-  },
+  // computed: {
+  //   filteredFruits() {
+  //     return this.fruits.filter((element) => {
+  //       return element.toLowerCase().match(this.filterText.toLowerCase())
+  //     })
+  //   },
+  // },
 };
 </script>
 
