@@ -10,6 +10,8 @@
         <p>{{ text | toUppercase | toLowercase }}</p>
         <hr />
         <!-- Using Computed Property Instead Filters -->
+        <!-- Mixins and Scope: adding an item to fruits not changing fruits in Mixin -->
+        <button @click="fruits.push('Berries')">Add New Item</button>
         <input v-model="filterText" />
         <ul>
           <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
