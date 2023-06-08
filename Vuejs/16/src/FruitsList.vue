@@ -11,5 +11,9 @@
 import { fruitMixin } from "./fruitMixin";
 export default {
   mixins: [fruitMixin],
+  created() {
+    // this hook execute after created hook in Mixin file
+    console.log("FruitList Created Hook");
+  },
 };
 </script>

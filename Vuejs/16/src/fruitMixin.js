@@ -12,5 +12,7 @@ export const fruitMixin = {
       });
     },
   },
+  created() {
+    console.log("Mixin Created Hook");
+  },
 };
- 
