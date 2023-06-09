@@ -8,7 +8,8 @@
           show Alert
         </button>
         <br /><br />
-        <transition>
+        <!-- only may use <transition> for a single element -->
+        <transition name="fade">
           <div class="alert alert-info" v-if="show">This is some Info</div>
         </transition>
       </div>
@@ -28,12 +29,12 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.fade-enter {
+}
+.fade-enter-active {
+}
+.fade-leave {
+}
+.fade-leave-active {
 }
 </style>
