@@ -1,4 +1,4 @@
-# 16
+# Filters and Mixins
 
 ## Project setup
 ```
