@@ -18,6 +18,12 @@
         <transition name="fade" appear>
           <div class="alert alert-info" v-if="show">This is some Info</div>
         </transition>
+        <transition
+          enter-active-class="animate__animated animate__swing"
+          leave-active-class="animate__animated animate__wobble"
+        >
+          <div class="alert alert-info" v-if="show">This is some Info</div>
+        </transition>
       </div>
     </div>
   </div>
@@ -59,9 +65,9 @@ export default {
 }
 .slide-enter-active {
   animation: slide-in 1s ease-out forwards;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
-.slide-leave { 
+.slide-leave {
 }
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
