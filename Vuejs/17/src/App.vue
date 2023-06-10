@@ -8,10 +8,16 @@
           show Alert
         </button>
         <br /><br />
+        <select v-model="alertAnimation" class="form-control">
+          <option value="fade">Fade</option>
+          <option value="slide">Slide</option>
+        </select>
+        <br /><br />
         <!-- only may use <transition> for a single element -->
-        <transition name="fade">
+        <transition :name="alertAnimation">
           <div class="alert alert-info" v-if="show">This is some Info</div>
         </transition>
+        <br />
         <transition name="slide" type="animation">
           <div class="alert alert-info" v-if="show">This is some Info</div>
         </transition>
@@ -35,6 +41,7 @@ export default {
   data() {
     return {
       show: true,
+      alertAnimation: "fade",
     };
   },
 };
