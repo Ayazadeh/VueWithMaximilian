@@ -58,7 +58,7 @@
         >
           <!-- :css="false" means don't look for css classes -->
           <div
-            style="width: 100px; height: 100px; background-color: lightgreen"
+            style="width: 300px; height: 100px; background-color: lightgreen"
             v-if="load"
           ></div>
         </Transition>
@@ -76,14 +76,26 @@ export default {
       show: false,
       load: true,
       alertAnimation: "fade",
+      elementWidth: 100,
     };
   },
   methods: {
     beforeEnter(el) {
       console.log("beforeEnter");
+      this.elementWidth = 100;
+      el.style.width = this.elementWidth + "px";
     },
     enter(el, done) {
       console.log("enter");
+      let round = 1;
+      const interval = setInterval(() => {
+        el.style.width = this.elementWidth + round * 10 + "px";
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
       // you need to call done to really tell vuejs when you are done
       // you don't need to call done if you do use css animations
       done();
@@ -96,10 +108,20 @@ export default {
     },
     beforeLeave(el) {
       console.log("beforeLeave");
+      this.elementWidth = 300;
+      el.style.width = this.elementWidth + 'px';
     },
     leave(el, done) {
       console.log("leave");
-      done();
+      let round = 1;
+      const interval = setInterval(() => {
+        el.style.width = this.elementWidth - round * 10 + "px";
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
     },
     afterLeave(el) {
       console.log("afterLeave");
