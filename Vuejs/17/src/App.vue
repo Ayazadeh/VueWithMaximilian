@@ -32,6 +32,7 @@
         </transition>
         <br />
         <transition :name="alertAnimation" mode="out-in">
+          <!-- v-show not working here -->
           <div class="alert alert-info" v-if="show" key="info">
             This is some Info 5
           </div>
@@ -39,19 +40,71 @@
             This is some Warning
           </div>
         </transition>
+        <hr />
+        <button class="btn btn-primary" @click="load = !load">
+          Load / Remove Element
+        </button>
+        <br /><br />
+        <Transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @enter-cancelled="enterCancelled"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <div
+            style="width: 100px; height: 100px; background-color: lightgreen"
+            v-if="load"
+          ></div>
+        </Transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: "App",
   data() {
     return {
-      show: true,
+      show: false,
+      load: true,
       alertAnimation: "fade",
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log("beforeEnter");
+    },
+    enter(el, done) {
+      console.log("enter");
+      // you need to call done to really tell vuejs when you are done
+      // you don't need to call done if you do use css animations
+      done();
+    },
+    afterEnter(el) {
+      console.log("afterEnter");
+    },
+    enterCancelled(el) {
+      console.log("enterCancelled");
+    },
+    beforeLeave(el) {
+      console.log("beforeLeave");
+    },
+    leave(el, done) {
+      console.log("leave");
+      done();
+    },
+    afterLeave(el) {
+      console.log("afterLeave");
+    },
+    leaveCancelled(el) {
+      console.log("leaveCancelled");
+    },
   },
 };
 </script>
