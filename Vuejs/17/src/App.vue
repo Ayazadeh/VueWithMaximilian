@@ -54,7 +54,9 @@
           @leave="leave"
           @after-leave="afterLeave"
           @leave-cancelled="leaveCancelled"
+          :css="false"
         >
+          <!-- :css="false" means don't look for css classes -->
           <div
             style="width: 100px; height: 100px; background-color: lightgreen"
             v-if="load"
