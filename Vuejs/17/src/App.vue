@@ -62,6 +62,21 @@
             v-if="load"
           ></div>
         </Transition>
+        <hr />
+        <button
+          class="btn btn-primary"
+          @click="
+            selectedComponent == 'app-success-alert'
+              ? (selectedComponent = 'app-danger-alert')
+              : (selectedComponent = 'app-success-alert')
+          "
+        >
+          Toogle Components
+        </button>
+        <br /><br />
+        <Transition name="fade" mode="out-in">
+          <component :is="selectedComponent"></component>
+        </Transition>
       </div>
     </div>
   </div>
@@ -69,6 +84,9 @@
 
 <script>
 /* eslint-disable */
+import DangerAlert from "@/components/DangerAlert.vue";
+import SuccessAlert from "@/components/SuccessAlert.vue";
+
 export default {
   name: "App",
   data() {
@@ -77,6 +95,7 @@ export default {
       load: true,
       alertAnimation: "fade",
       elementWidth: 100,
+      selectedComponent: "app-success-alert",
     };
   },
   methods: {
@@ -109,7 +128,7 @@ export default {
     beforeLeave(el) {
       console.log("beforeLeave");
       this.elementWidth = 300;
-      el.style.width = this.elementWidth + 'px';
+      el.style.width = this.elementWidth + "px";
     },
     leave(el, done) {
       console.log("leave");
@@ -129,6 +148,10 @@ export default {
     leaveCancelled(el) {
       console.log("leaveCancelled");
     },
+  },
+  components: {
+    appDangerAlert: DangerAlert,
+    appSuccessAlert: SuccessAlert,
   },
 };
 </script>
