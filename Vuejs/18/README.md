@@ -1,4 +1,4 @@
-# 18
+# The Super Quiz
 
 ## Project setup
 ```
