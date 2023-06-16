@@ -8,26 +8,40 @@
     <hr />
     <div class="row">
       <div class="col-sx-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <component :is="mode"></component>
+        <component
+          :is="mode"
+          @answered="answered($event)"
+          @confirmed="mode = 'app-question'"
+        ></component>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Question from "./components/Question.vue";
-import Answer from "./components/Answer.vue";
+import QuestionPart from "./components/QuestionPart.vue";
+import AnswerPart from "./components/AnswerPart.vue";
 
 export default {
   name: "App",
   components: {
-    appQuestion: Question,
-    appAnswer: Answer,
+    appQuestion: QuestionPart,
+    appAnswer: AnswerPart,
   },
   data() {
     return {
       mode: "app-question",
     };
+  },
+  methods: {
+    answered(isCorrect) {
+      if (isCorrect) {
+        this.mode = "app-answer";
+      } else {
+        this.mode = "app-question";
+        alert("Wrong, try again!");
+      }
+    },
   },
 };
 </script>
