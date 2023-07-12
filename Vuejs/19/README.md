@@ -1,4 +1,4 @@
-# 19
+# Connecting to Servers via Http - Using vue-resource
 
 ## Project setup
 ```
