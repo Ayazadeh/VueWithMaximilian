@@ -9,8 +9,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.32.0",
     "core-js": "^3.8.3",
-    "vue": "^2.7.14",
-    "vue-resource": "^1.5.3"
+    "vue": "^2.7.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
