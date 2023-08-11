@@ -18,7 +18,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "@vue/runtime-dom";
+
+export default defineComponent({
   name: "App",
   data() {
     return {
@@ -33,7 +35,5 @@ export default {
       console.log(this.user);
     },
   },
-};
+});
 </script>
-
-<style></style>
