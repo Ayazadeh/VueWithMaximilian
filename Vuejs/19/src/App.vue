@@ -11,7 +11,15 @@
           <label>password</label>
           <input type="text" class="form-control" v-model="user.password" />
         </div>
-        <button class="btn btn-primary" @click="submit">Submit</button>
+        <button class="btn btn-primary" @click="submit">Submit</button><br />
+        <hr />
+        <button class="btn btn-primary" @click="fetchData">Get Data</button><br><br>
+        <h4>Users:</h4>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="u in users">
+            {{ u.email }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -19,7 +27,7 @@
 
 <script>
 import { defineComponent } from "@vue/runtime-dom";
-import { supabase } from "./lib/supabaseClient";
+import { supabase, adminAuthClient } from "./lib/supabaseClient";
 export default defineComponent({
   name: "App",
   data() {
@@ -28,6 +36,7 @@ export default defineComponent({
         email: "",
         password: "",
       },
+      users: [],
     };
   },
   methods: {
@@ -37,6 +46,20 @@ export default defineComponent({
         email: this.user.email,
         password: this.user.password,
       });
+      console.log("data:  ", data);
+    },
+    async fetchData() {
+
+      const {
+        data: { users },
+        error,
+      } = await adminAuthClient.listUsers();
+
+      const temp = [];
+      for (let key in users) {
+        temp.push(users[key]);
+      }
+      this.users = temp
     },
   },
 });
