@@ -55,11 +55,7 @@ export default defineComponent({
         error,
       } = await adminAuthClient.listUsers();
 
-      const temp = [];
-      for (let key in users) {
-        temp.push(users[key]);
-      }
-      this.users = temp
+      this.users = users
     },
   },
 });
