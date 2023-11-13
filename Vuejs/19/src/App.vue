@@ -53,6 +53,8 @@ export default defineComponent({
       // alternative with vue-resource
 
       // this.resource.save({}, this.user)
+
+      // this.resource.saveAlt(this.user);
     },
     async fetchData() {
       const {
@@ -64,8 +66,12 @@ export default defineComponent({
     },
   },
   created() {
+    const customActions = {
+      saveAlt: { method: "POST", url: "alternative.json" },
+    };
+
     // this is the path, url we want to visit with this resource
-    this.resource = this.$resource('data.json');
+    this.resource = this.$resource("data.json", {}, customActions);
   },
 });
 </script>
