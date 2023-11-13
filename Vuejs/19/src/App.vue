@@ -13,7 +13,8 @@
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button><br />
         <hr />
-        <button class="btn btn-primary" @click="fetchData">Get Data</button><br><br>
+        <button class="btn btn-primary" @click="fetchData">Get Data</button
+        ><br /><br />
         <h4>Users:</h4>
         <ul class="list-group">
           <li class="list-group-item" v-for="u in users">
@@ -37,6 +38,7 @@ export default defineComponent({
         password: "",
       },
       users: [],
+      resource: {},
     };
   },
   methods: {
@@ -47,16 +49,23 @@ export default defineComponent({
         password: this.user.password,
       });
       console.log("data:  ", data);
+
+      // alternative with vue-resource
+
+      // this.resource.save({}, this.user)
     },
     async fetchData() {
-
       const {
         data: { users },
         error,
       } = await adminAuthClient.listUsers();
 
-      this.users = users
+      this.users = users;
     },
+  },
+  created() {
+    // this is the path, url we want to visit with this resource
+    this.resource = this.$resource('data.json');
   },
 });
 </script>
