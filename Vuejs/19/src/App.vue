@@ -13,6 +13,8 @@
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button><br />
         <hr />
+        <input type="text" class="form-control" v-model="node">
+        <br><br>
         <button class="btn btn-primary" @click="fetchData">Get Data</button
         ><br /><br />
         <h4>Users:</h4>
@@ -39,6 +41,7 @@ export default defineComponent({
       },
       users: [],
       resource: {},
+      node: "data",
     };
   },
   methods: {
@@ -63,15 +66,19 @@ export default defineComponent({
       } = await adminAuthClient.listUsers();
 
       this.users = users;
+
+      // alternative
+      // this.resource.getData({ node: this.node }).then();
     },
   },
   created() {
     const customActions = {
       saveAlt: { method: "POST", url: "alternative.json" },
+      getData: { method: "GET" },
     };
 
     // this is the path, url we want to visit with this resource
-    this.resource = this.$resource("data.json", {}, customActions);
+    this.resource = this.$resource("{node}.json", {}, customActions);
   },
 });
 </script>
