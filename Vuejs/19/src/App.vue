@@ -3,6 +3,10 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Http</h1>
+        <button class="btn btn-danger" @click="deleteUsers">
+          Delete Users
+        </button>
+        <br><br>
         <div class="form-group">
           <label>Mail</label>
           <input type="text" class="form-control" v-model="user.email" />
@@ -13,8 +17,8 @@
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button><br />
         <hr />
-        <input type="text" class="form-control" v-model="node">
-        <br><br>
+        <input type="text" class="form-control" v-model="node" />
+        <br /><br />
         <button class="btn btn-primary" @click="fetchData">Get Data</button
         ><br /><br />
         <h4>Users:</h4>
@@ -45,6 +49,12 @@ export default defineComponent({
     };
   },
   methods: {
+    async deleteUsers() {
+      this.fetchData()
+      for(let user of this.users){
+        const {data, error} = await adminAuthClient.deleteUser(user.id)
+      }
+    },
     async submit() {
       // signUp User in Supabase alternative Firebase
       const { data, error } = await supabase.auth.signUp({
