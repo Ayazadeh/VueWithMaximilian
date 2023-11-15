@@ -30,7 +30,14 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.user);
+      this.$http.post("https://server-test.stoplight.io/user.json", this.user).then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     },
   },
 };
