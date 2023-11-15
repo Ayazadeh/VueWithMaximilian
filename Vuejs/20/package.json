@@ -1,5 +1,5 @@
 {
-  "name": "19",
+  "name": "20",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,15 +7,13 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.32.0",
     "core-js": "^3.8.3",
-    "vue": "^2.7.14",
-    "vue-resource": "^1.5.3"
+    "vue": "^2.6.14",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "@vue/runtime-dom": "latest",
     "vue-template-compiler": "^2.6.14"
   },
   "browserslist": [
