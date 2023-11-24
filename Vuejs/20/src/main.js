@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes,
-  mode: 'history' // for the hash mode, use -> mode: 'hash' -> /#/ in url
+  mode: "history", // for the hash mode, use -> mode: 'hash' -> /#/ in url
 });
 
 new Vue({

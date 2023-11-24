@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Some User Details</h1>
+    <h2>Some User Details</h2>
     <p>User Loaded has ID: {{ $route.params.id }}</p>
     <!-- <router-link
       tag="button"
@@ -12,7 +12,11 @@
     <router-link
       tag="button"
       class="btn btn-primary"
-      :to="{ name: 'userEdit', params: { id: $route.params.id } }"
+      :to="{
+        name: 'userEdit',
+        params: { id: $route.params.id },
+        query: { locale: 'en', q: 100 },
+      }"
     >
       user edit
     </router-link>
