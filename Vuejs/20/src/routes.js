@@ -9,18 +9,21 @@ export const routes = [
   {
     path: "",
     name: "home",
-    // component: Home,
     components: {
+      // Alternative for component key
       default: Home,
       "Header-top": Header,
     },
+    // component: Home,
   },
-  // { path: "/user/:id", component: User }, // Dynamic Route
+  // Dynamic Route
+  // { path: "/user/:id", component: User },
   // below code instead up code (nested route)
   {
-    path: "/user",
     // component: User,
+    path: "/user",
     components: {
+      // Alternative for component key
       default: User,
       "Header-bottom": Header,
     },
@@ -30,4 +33,9 @@ export const routes = [
       { path: ":id/edit", component: UserEdit, name: "userEdit" },
     ],
   },
+  {
+    // path: '/redirect-me', redirect: '/'
+    // Another Way to redirect
+    path: "/redirect-me", redirect: { name: "home" }
+  }
 ];

@@ -16,9 +16,11 @@
         name: 'userEdit',
         params: { id: $route.params.id },
         query: { locale: 'en', q: 100 },
-      }"
-    >
+      }">
+
       user edit
+      
     </router-link>
+    <br><br>
   </div>
 </template>
