@@ -36,6 +36,12 @@ export const routes = [
   {
     // path: '/redirect-me', redirect: '/'
     // Another Way to redirect
-    path: "/redirect-me", redirect: { name: "home" }
-  }
+    path: "/redirect-me",
+    redirect: { name: "home" },
+  },
+  {
+    // Setting Up _Catch All_ Routes _ Wildcards
+    path: "*",
+    redirect: { name: "home" },
+  },
 ];
