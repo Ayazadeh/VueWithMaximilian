@@ -25,7 +25,8 @@ export const routes = [
     components: {
       // Alternative for component key
       default: User,
-      "Header-bottom": Header,
+      "Header-top": Header,
+      // "Header-bottom": Header,
     },
     children: [
       { path: "", component: UserStart },
