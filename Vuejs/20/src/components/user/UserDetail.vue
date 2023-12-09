@@ -9,18 +9,28 @@
     >
       user edit
     </router-link> -->
-    <router-link
-      tag="button"
-      class="btn btn-primary"
-      :to="{
-        name: 'userEdit',
-        params: { id: $route.params.id },
-        query: { locale: 'en', q: 100 },
-      }">
-
+    <router-link tag="button" class="btn btn-primary" :to="link">
       user edit
-      
     </router-link>
-    <br><br>
+    <br /><br />
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      link: {
+        name: "userEdit",
+        params: {
+          id: this.$route.params.id,
+        },
+        query: {
+          locale: "en",
+          q: 100,
+        },
+        hash: "#data",
+      },
+    };
+  },
+};
+</script>
