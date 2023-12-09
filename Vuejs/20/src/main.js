@@ -10,6 +10,15 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes,
   mode: "history", // for the hash mode, use -> mode: 'hash' -> /#/ in url
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+    return { x: 0, y: 0 };
+  },
 });
 
 new Vue({
