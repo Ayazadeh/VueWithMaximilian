@@ -30,7 +30,15 @@ export const routes = [
     },
     children: [
       { path: "", component: UserStart },
-      { path: ":id", component: UserDetail },
+      {
+        path: ":id",
+        component: UserDetail,
+        beforeEnter: (to, from, next) => {
+          // this is how we can check if a user allowed to visit a certain page.
+          console.log("inside route setup");
+          next();
+        },
+      },
       { path: ":id/edit", component: UserEdit, name: "userEdit" },
     ],
   },

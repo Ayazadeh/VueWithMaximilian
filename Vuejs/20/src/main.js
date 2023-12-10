@@ -21,6 +21,17 @@ const router = new VueRouter({
   },
 });
 
+router.beforeEach((to, from, next) => {
+  // this is how we can check if a user allowed to visit a certain page.
+  console.log("global beforeEach");
+
+  next(); 
+  // next(false); // request abort
+  // next('path'); // redirect to path
+  // next({ path: '/login' }); // redirect to /login
+  // next(); // let the request continue its journey
+});
+
 new Vue({
   router,
   render: (h) => h(App),
