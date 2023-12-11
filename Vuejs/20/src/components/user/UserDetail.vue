@@ -35,7 +35,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     // this is how we can check if a user allowed to visit a certain page.
     console.log("beforeRouteEnter in UserDetail.vue");
-    if (false) {
+    if (true) {
       next(); // let the request continue its journey
     } else {
       next(false); // abort request;
