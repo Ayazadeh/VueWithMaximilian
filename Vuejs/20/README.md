@@ -21,5 +21,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-https://github.com/Ayazadeh/VueCourseWithMaximilian/assets/80272331/f93ed5dc-d8ca-437e-86f3-a92e7493715b
+https://github.com/Ayazadeh/VueCourseWithMaximilian/assets/80272331/66ec9af2-1132-4a7a-8ee7-86e9c8d761e9
 
