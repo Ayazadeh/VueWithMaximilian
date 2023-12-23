@@ -77,7 +77,7 @@ export const routes = [
         path: ":id",
         component: UserDetail,
         beforeEnter: (to, from, next) => {
-          // this is how we can check if a user allowed to visit a certain page.
+          // this is how we can check if a user is allowed to visit a certain page.
           console.log("inside route setup");
           next();
         },
