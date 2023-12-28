@@ -1,6 +1,12 @@
 <template>
   <div>
-    <button class="btn btn-primary" style="margin-right: 1rem" @click="increment">Increment</button>
+    <button
+      @click="increment"
+      class="btn btn-primary"
+      style="margin-right: 1rem"
+    >
+      Increment
+    </button>
     <button class="btn btn-primary" @click="decrement">Decrement</button>
   </div>
 </template>
