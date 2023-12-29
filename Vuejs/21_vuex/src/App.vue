@@ -1,20 +1,18 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <div class="row">
-        <div
-          class="
-          col-sm-8 
-          col-md-6 
-          col-xs-12 
-          col-md-offset-3
-          col-sm-offset-2"
-        >
-          <h1>Vuex</h1>
-          <app-result :counter="counter" />
-          <hr />
-          <app-counter @updated="counter += $event" />
-        </div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="
+        col-sm-8 
+        col-md-6 
+        col-xs-12 
+        col-md-offset-3
+        col-sm-offset-2"
+      >
+        <h1>Vuex</h1>
+        <app-result :counter="counter" />
+        <hr />
+        <app-counter @updated="counter += $event" />
       </div>
     </div>
   </div>
@@ -37,14 +35,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
