@@ -10,9 +10,20 @@
         col-sm-offset-2"
       >
         <h1>Vuex</h1>
-        <app-result :counter="counter" />
+        
+        <!-- without using $store -->
+        <!-- <app-result :counter="counter" /> -->
+
+        <!-- with using $store -->
+        <app-result />
+
         <hr />
-        <app-counter @updated="counter += $event" />
+
+        <!-- without using $store -->
+        <!-- <app-counter @updated="counter += $event" /> -->
+
+        <!-- with using $store -->
+        <app-counter />
       </div>
     </div>
   </div>
@@ -28,10 +39,11 @@ export default {
     appCounter: CounterNumber,
     appResult: ResultNumber,
   },
-  data() {
-    return {
-      counter: 0,
-    };
-  },
+  // without using $store
+  // data() {
+  //   return {
+  //     counter: 0,
+  //   };
+  // },
 };
 </script>

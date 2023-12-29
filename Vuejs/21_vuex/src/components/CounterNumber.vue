@@ -15,10 +15,15 @@
 export default {
   methods: {
     increment() {
-      this.$emit("updated", 1);
+      console.log('test ', this.$store);
+
+      // this.$emit("updated", 1);
+      // using store instead up code
+      this.$store.state.counter++;
     },
     decrement() {
-      this.$emit("updated", -1);
+      // this.$emit("updated", -1);
+      this.$store.state.counter--;
     },
   },
 };
