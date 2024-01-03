@@ -1,7 +1,0 @@
-const persianDate = new Intl.RelativeTimeFormat('fa')
-      console.log(persianDate.format(10, 'day'))
-      console.log(persianDate.format(10, 'month'))
-      console.log(persianDate.format(10, 'week'))
-      console.log(persianDate.format(-10, 'day'))
-      console.log(persianDate.format(-10, 'month'))
-      console.log(persianDate.format(-10, 'week'))
