@@ -1,4 +1,4 @@
-# Better State Management with Vuex
+# 21_vuex
 
 ## Project setup
 ```
