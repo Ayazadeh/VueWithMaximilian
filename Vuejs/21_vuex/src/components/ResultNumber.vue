@@ -8,7 +8,12 @@ export default {
     // using $store instead up code
     computed:{
         counter(){
-            return this.$store.state.counter * 2
+
+            // using state
+            // return this.$store.state.counter
+
+            // using getters
+            return this.$store.getters.doubleCounter;
         }
     }
 }
