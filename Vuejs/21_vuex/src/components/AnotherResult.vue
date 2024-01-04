@@ -8,7 +8,7 @@ export default {
     // using $store instead up code
     computed:{
         counter(){
-            return this.$store.state.counter * 2
+            return this.$store.state.counter * 2;
         }
     }
 }

@@ -10,12 +10,13 @@
         col-sm-offset-2"
       >
         <h1>Vuex</h1>
-        
+
         <!-- without using $store -->
         <!-- <app-result :counter="counter" /> -->
 
         <!-- with using $store -->
         <app-result />
+        <app-another-result />
 
         <hr />
 
@@ -32,12 +33,14 @@
 <script>
 import CounterNumber from "./components/CounterNumber.vue";
 import ResultNumber from "./components/ResultNumber.vue";
+import AnotherResult from "./components/AnotherResult.vue";
 
 export default {
   name: "App",
   components: {
     appCounter: CounterNumber,
     appResult: ResultNumber,
+    appAnotherResult: AnotherResult,
   },
   // without using $store
   // data() {
