@@ -25,8 +25,11 @@
 
         <!-- with using $store -->
         <app-counter />
+        <app-another-counter />
 
-        <app-another-counter/>
+        <hr />
+        <input type="text" v-model="value" />
+        <p>{{ value }}</p>
       </div>
     </div>
   </div>
@@ -40,6 +43,21 @@ import AnotherResult from "./components/AnotherResult.vue";
 
 export default {
   name: "App",
+  computed:{
+    value:{
+      // getter and setter in computed property
+      /* 
+        using a setter in computed property is something you rarely need,
+        because computed in the end means it depends on something else and recalculated
+      */ 
+      get(){
+        return this.$store.getters.value
+      },
+      set(value){
+        this.$store.dispatch('updateValue', value)
+      }
+    }
+  },
   components: {
     appCounter: CounterNumber,
     appAnotherCounter: AnotherCounter,

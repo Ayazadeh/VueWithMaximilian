@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     counter: 0,
+    value: 0,
   },
   /* 
     getting the data from out store through these getters makes sure that 
@@ -15,10 +16,12 @@ export const store = new Vuex.Store({
   getters: {
     doubleCounter: (state) => state.counter * 2,
     stringCounter: (state) => state.counter + " Clicks",
+    value: (state) => state.value,
   },
   mutations: {
-    increment: (state, payload) => state.counter += payload,
-    decrement: (state, payload) => state.counter -= payload,
+    increment: (state, payload) => (state.counter += payload),
+    decrement: (state, payload) => (state.counter -= payload),
+    updateValue: (state, payload) => (state.value = payload),
   },
   actions: {
     increment: ({ commit }, payload) => commit("increment", payload), // add second argument as payload and use it in mutation
@@ -33,5 +36,6 @@ export const store = new Vuex.Store({
         commit("decrement", payload.by);
       }, payload.duration);
     },
+    updateValue: ({ commit }, payload) => commit("updateValue", payload),
   },
 });
