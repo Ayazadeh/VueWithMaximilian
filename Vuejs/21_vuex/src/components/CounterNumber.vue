@@ -1,5 +1,8 @@
 <template>
   <div>
+    <br>
+    <br>
+    <h4> -- Counter Number -- </h4>
     <button
       @click="increment"
       class="btn btn-primary"

@@ -25,6 +25,8 @@
 
         <!-- with using $store -->
         <app-counter />
+
+        <app-another-counter/>
       </div>
     </div>
   </div>
@@ -32,6 +34,7 @@
 
 <script>
 import CounterNumber from "./components/CounterNumber.vue";
+import AnotherCounter from "./components/AnotherCounter.vue";
 import ResultNumber from "./components/ResultNumber.vue";
 import AnotherResult from "./components/AnotherResult.vue";
 
@@ -39,6 +42,7 @@ export default {
   name: "App",
   components: {
     appCounter: CounterNumber,
+    appAnotherCounter: AnotherCounter,
     appResult: ResultNumber,
     appAnotherResult: AnotherResult,
   },
