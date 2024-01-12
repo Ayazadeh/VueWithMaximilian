@@ -27,6 +27,12 @@ const actions = {
   },
 };
 
+/**
+ * Exports the Vuex store configuration for the counter module.
+ *
+ * Contains the state, getters, mutations and actions for
+ * managing a counter value in the store.
+ */
 export default {
   state,
   getters,
