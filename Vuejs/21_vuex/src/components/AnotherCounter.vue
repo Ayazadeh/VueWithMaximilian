@@ -1,23 +1,42 @@
 <template>
   <div>
     <br />
-    <br />
     <h4>-- Another Counter --</h4>
     <button
-      @click="increment"
+      @click="increment(100)"
       class="btn btn-primary"
       style="margin-right: 1rem"
     >
       Increment
     </button>
-    <button class="btn btn-primary" @click="decrement">Decrement</button>
+    <button class="btn btn-primary" @click="decrement(50)">Decrement</button>
+
+    <h6>-- async mutations (actions) --</h6>
+    <button
+      @click="asyncIncrement({by: 100, duration: 500})"
+      class="btn btn-primary"
+      style="margin-right: 1rem"
+    >
+      Increment
+    </button>
+    <button
+      class="btn btn-primary"
+      @click="asyncDecrement({by: 50, duration: 1500})"
+    >
+      Decrement
+    </button>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+// import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
+  name: "AnotherCounter",
+  // using Store Mutations
+  // using Store Actions
+
   // methods: {
   //   increment() {
   //     // this.$emit("updated", 1);
@@ -45,7 +64,7 @@ export default {
   //   },
   // },
 
-
+/*
   // Using mapMutations instead of the code above
   methods:{
     ...mapMutations([
@@ -53,5 +72,14 @@ export default {
       'decrement'
     ])
   },
+*/
+methods: {
+  ...mapActions([
+    'increment',
+    'decrement',
+    'asyncIncrement',
+    'asyncDecrement'
+  ])
+}
 };
 </script>
