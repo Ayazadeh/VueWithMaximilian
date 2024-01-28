@@ -9,17 +9,18 @@
     <!-- using mapGetters as an object of getters -->
     <p>Counter is: {{ counter }}</p>
     <p>Number of Clicks: {{ clicks }}</p>
-    <p>add our own computed property: {{ ourOwnProperty  }}</p>
+    <p>add our own computed property: {{ ourOwnProperty }}</p>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
+import * as types from "../store/types";
 
 export default {
-    // props: ['counter']
+  // props: ['counter']
 
-    /*
+  /*
         // using $store instead up code
         computed:{
             counter(){
@@ -35,14 +36,14 @@ export default {
             }
         }
     */
-    /*
+  /*
         // using mapGetters as a list of getters
         computed: mapGetters([
             'doubleCounter',
             'stringCounter'
         ])
     */
-    /*
+  /*
         // using mapGetters as an object of getters
         computed: mapGetters({
             counter: 'doubleCounter',
@@ -50,21 +51,25 @@ export default {
         })
     */
 
-    computed: {
-        /*
-            with ES6 we get this spread operator '...', the three dots
-            the three dots basically allow us to tell javascript please pull out
-            all the properties and methods in the object you have here and create
-            separate key-value pairs for each of them. so we could still write our own
-            computed property here and have no issue at all.
-        */
-        ...mapGetters({
-            counter: 'doubleCounter',
-            clicks: 'stringCounter',
-        }),
-        ourOwnProperty(){
-            return 'just for test'
-        }
-    }
-}
+  computed: {
+    /*
+        with ES6 we get this spread operator '...', the three dots
+        the three dots basically allow us to tell javascript please pull out
+        all the properties and methods in the object you have here and create
+        separate key-value pairs for each of them. so we could still write our own
+        computed property here and have no issue at all.
+    */
+    ...mapGetters({
+      // counter: 'doubleCounter',
+      // clicks: 'stringCounter',s
+
+      // using types
+      counter: types.DOUBLE_COUNTER,
+      clicks: types.CLICK_COUNTER,
+    }),
+    ourOwnProperty() {
+      return "just for test";
+    },
+  },
+};
 </script>

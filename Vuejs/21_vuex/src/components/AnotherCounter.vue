@@ -13,7 +13,7 @@
 
     <h6>-- async mutations (actions) --</h6>
     <button
-      @click="asyncIncrement({by: 100, duration: 500})"
+      @click="asyncIncrement({ by: 100, duration: 500 })"
       class="btn btn-primary"
       style="margin-right: 1rem"
     >
@@ -21,7 +21,7 @@
     </button>
     <button
       class="btn btn-primary"
-      @click="asyncDecrement({by: 50, duration: 1500})"
+      @click="asyncDecrement({ by: 50, duration: 1500 })"
     >
       Decrement
     </button>
@@ -30,7 +30,8 @@
 
 <script>
 // import { mapMutations } from 'vuex';
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
+import * as types from "../store/types";
 
 export default {
   name: "AnotherCounter",
@@ -64,7 +65,7 @@ export default {
   //   },
   // },
 
-/*
+  /*
   // Using mapMutations instead of the code above
   methods:{
     ...mapMutations([
@@ -73,13 +74,13 @@ export default {
     ])
   },
 */
-methods: {
-  ...mapActions([
-    'increment',
-    'decrement',
-    'asyncIncrement',
-    'asyncDecrement'
-  ])
-}
+  methods: {
+    ...mapActions({
+      increment: types.COUNTER_INCREMENT,
+      decrement: types.COUNTER_DECREMENT,
+      asyncIncrement: types.COUNTER_INCREMENT_ASYNC,
+      asyncDecrement: types.COUNTER_DECREMENT_ASYNC,
+    }),
+  },
 };
 </script>

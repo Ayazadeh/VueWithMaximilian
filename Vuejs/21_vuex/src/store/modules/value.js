@@ -1,17 +1,20 @@
+import * as types from "../types";
+
 const state = {
   value: 0,
 };
 
 const getters = {
-  value: (state) => state.value,
+  [types.VALUE]: (state) => state.value,
 };
 
 const mutations = {
-  updateValue: (state, payload) => (state.value = payload),
+  [types.MUTATE_UPDATE_VALUE]: (state, payload) => (state.value = payload),
 };
 
 const actions = {
-  updateValue: ({ commit }, payload) => commit("updateValue", payload),
+  [types.UPDATE_VALUE]: ({ commit }, payload) =>
+    commit([types.MUTATE_UPDATE_VALUE], payload),
 };
 
 export default {
