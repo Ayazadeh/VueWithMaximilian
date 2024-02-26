@@ -6,6 +6,10 @@ import store from "./store/store";
 
 Vue.config.productionTip = false;
 
+Vue.filter("currency", (value) => {
+  return "$" + value.toLocaleString();
+});
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({

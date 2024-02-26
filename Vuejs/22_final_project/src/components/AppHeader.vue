@@ -14,7 +14,7 @@
             <a>Stocks</a>
           </router-link>
         </ul>
-        <strong class="navbar-text navbar-right"> Founds: {{ funds }} </strong>
+        <strong class="navbar-text navbar-right"> Founds: {{ funds | currency }} </strong>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">End Day</a></li>
           <li class="dropdown">
