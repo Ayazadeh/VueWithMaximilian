@@ -4,9 +4,9 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           {{ stock.name }}
-          <small
-            >(Price: {{ stock.price }} | Quantity: {{  stock.quantity }})</small
-          >
+          <small>
+            ( Price: {{ stock.price }} | Quantity:{{  stock.quantity }} )
+          </small>
         </h3>
       </div>
       <div class="panel-body">
@@ -49,13 +49,13 @@ export default {
         ...mapActions([
             'sellStock'
         ]),
-      sellStock(){
+        sellStock(){
           const order = {
               stockId: this.stock.id,
               stockPrice: this.stock.price,
               quantity: this.quantity
           }
-          this.sellStock()
+          this.sellStock(order)
       }
     }
 }
