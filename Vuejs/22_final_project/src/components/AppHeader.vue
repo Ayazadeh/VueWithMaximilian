@@ -36,7 +36,7 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Save Data</a></li>
+              <li><a href="#" @click="saveData">Save Data</a></li>
               <li><a href="#">Load Data</a></li>
             </ul>
           </li>
@@ -49,6 +49,9 @@
 </template>
 <script>
 import {mapActions} from 'vuex'
+import {createClient} from '@supabase/supabase-js';
+const supabase = createClient(process.env.VUE_APP_SUPABASE_URL, process.env.VUE_APP_SUPABASE_KEY)
+
 export default{
   data(){
     return{
@@ -66,7 +69,23 @@ export default{
     ]),
     endDay(){
       this.randomizeStocks()
+    },
+   async saveData(){
+      const myData = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks
+      };
+
+    const { data, error } = await supabase
+      .from('stocks')
+      .insert([
+        myData
+      ]).select()
+      console.log('test ', data);
+      console.log('error ', error)
     }
   }
+
 }
 </script>
