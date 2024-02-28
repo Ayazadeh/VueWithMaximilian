@@ -70,12 +70,31 @@ export default {
     endDay() {
       this.randomizeStocks();
     },
-    saveData() {
-      const data = {
+    async saveData() {
+      const myData = {
         funds: this.$store.getters.funds,
         stockPortfolio: this.$store.getters.stockPortfolio,
         stocks: this.$store.getters.stocks,
       };
+      try {
+        const { data, error } = await supabase
+          .from("stocks")
+          .insert([myData])
+          .select();
+
+        if (error) {
+          alert(error.message);
+          console.error("There was an error inserting", error);
+          return null;
+        }
+
+        console.log("created a new record");
+        return data;
+      } catch (err) {
+        alert("Error");
+        console.error("Unknown problem inserting to db", err);
+        return null;
+      }
     },
   },
 };
