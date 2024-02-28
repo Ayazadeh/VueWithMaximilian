@@ -52,6 +52,7 @@
   </nav>
 </template>
 <script>
+import { supabase } from "@/lib/supabase";
 import { mapActions } from "vuex";
 export default {
   data() {
