@@ -7,10 +7,25 @@
 <script>
 import axios from 'axios'
 export default{
+  data(){
+    return{
+
+    }
+  },
   created(){
     axios.get('://vue-backend-48df1-default-rtdb.firebaseio.com/users.json')
-    .then(res => console.log(res))
-    .catch(error => console.log(error))
+    .then(res => {
+      console.log(res)
+      const data = res.data
+      const users = []
+      for(let key in data){
+        const user = data[key]
+        user.id = key
+        users.push(user)
+      }
+      console.log('users: ', users)
+    })
+    .catch(error => console.log('error: ', error))
   }
 }
 </script>
