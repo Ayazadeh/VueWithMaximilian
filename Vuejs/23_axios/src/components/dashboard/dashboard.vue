@@ -14,7 +14,7 @@ export default{
     }
   },
   created(){
-    axios.get('https://vue-backend-48df1-default-rtdb.firebaseio.com/users.json')
+    axios.get('/users.json')
     .then(res => {
       console.log('dashboard response: ', res)
       const data = res.data
