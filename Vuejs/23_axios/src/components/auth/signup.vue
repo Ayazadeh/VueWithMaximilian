@@ -101,7 +101,14 @@ export default {
       };
       console.log(formData);
       axios
-        .post("/users.json", formData)
+        .post(
+          "/accounts:signUp?key=AIzaSyCp3qvG-odvraBgm14HEsnPXJOL-KnRP50",
+          {
+            email: formData.email,
+            password: formData.password,
+            returnSecureToken: true,
+          }
+        )
         .then((res) => console.log(res))
         .catch((error) => console.log(error));
     },
