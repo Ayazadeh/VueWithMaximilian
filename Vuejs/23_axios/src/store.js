@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "./axios-auth";
+import globalAxios from "axios";
 
 Vue.use(Vuex);
 
@@ -8,15 +9,19 @@ export default new Vuex.Store({
   state: {
     idToken: null,
     userId: null,
+    user: null,
   },
   mutations: {
     authUser(state, userData) {
       state.idToken = userData.token;
       state.userId = userData.userId;
     },
+    storeUser(state, userData) {
+      state.user = userData;
+    },
   },
   actions: {
-    signup({ commit }, authData) {
+    signup({ commit, dispatch }, authData) {
       axios
         .post("/accounts:signUp?key=AIzaSyCp3qvG-odvraBgm14HEsnPXJOL-KnRP50", {
           email: authData.email,
@@ -24,11 +29,12 @@ export default new Vuex.Store({
           returnSecureToken: true,
         })
         .then((res) => {
-          console.log('signup: ', res);
+          console.log("signup: ", res);
           commit("authUser", {
             token: res.data.idToken,
             userId: res.data.localId,
           });
+          dispatch("storeUser", userData);
         })
         .catch((error) => console.log(error));
     },
@@ -43,7 +49,7 @@ export default new Vuex.Store({
           }
         )
         .then((res) => {
-          console.log('login: ', res);
+          console.log("login: ", res);
           commit("authUser", {
             token: res.data.idToken,
             userId: res.data.localId,
@@ -51,6 +57,33 @@ export default new Vuex.Store({
         })
         .catch((error) => console.log(error));
     },
+    storeUser({ commit }, userData) {
+      globalAxios
+        .post("/users.json", userData)
+        .then((res) => console.log(res))
+        .catch((error) => console.log(error));
+    },
+    fetchUser({ commit }) {
+      globalAxios
+        .get("/users.json")
+        .then((res) => {
+          console.log("dashboard response: ", res);
+          const data = res.data;
+          const users = [];
+          for (let key in data) {
+            const user = data[key];
+            user.id = key;
+            users.push(user);
+          }
+          console.log("dashboard users: ", users);
+          commit("storeUser", users[0]);
+        })
+        .catch((error) => console.log("dashboard error: ", error));
+    },
   },
-  getters: {},
+  getters: {
+    getUser(state) {
+      return state.user;
+    },
+  },
 });

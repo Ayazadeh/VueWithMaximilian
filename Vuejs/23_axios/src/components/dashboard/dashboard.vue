@@ -6,30 +6,15 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 export default {
-  data() {
-    return {
-      email: "",
-    };
+  computed: {
+    email() {
+      return this.$store.getters.getUser.email;
+    },
   },
-  created() {
-    axios
-      .get("/users.json")
-      .then((res) => {
-        console.log("dashboard response: ", res);
-        const data = res.data;
-        const users = [];
-        for (let key in data) {
-          const user = data[key];
-          user.id = key;
-          users.push(user);
-        }
-        console.log("dashboard users: ", users);
-        this.email = users[0].email;
-      })
-      .catch((error) => console.log("dashboard error: ", error));
-  },
+  created(){
+    this.$store.dispatch('fetchUser')
+  }
 };
 </script>
 
