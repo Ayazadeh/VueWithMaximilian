@@ -21,11 +21,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    signup({ commit, dispatch }, authData) {
+    signup({ commit, dispatch }, userData) {
       axios
         .post("/accounts:signUp?key=AIzaSyCp3qvG-odvraBgm14HEsnPXJOL-KnRP50", {
-          email: authData.email,
-          password: authData.password,
+          email: userData.email,
+          password: userData.password,
           returnSecureToken: true,
         })
         .then((res) => {
@@ -57,15 +57,22 @@ export default new Vuex.Store({
         })
         .catch((error) => console.log(error));
     },
-    storeUser({ commit }, userData) {
+    storeUser({ commit, state }, userData) {
+      if (!state.idToken) {
+        return;
+      }
+      console.log("test ", state.idToken);
       globalAxios
-        .post("/users.json", userData)
+        .post("/users.json" + "?auth=" + state.idToken, userData)
         .then((res) => console.log(res))
         .catch((error) => console.log(error));
     },
-    fetchUser({ commit }) {
+    fetchUser({ commit, state }) {
+      if (!state.idToken) {
+        return;
+      }
       globalAxios
-        .get("/users.json")
+        .get("/users.json" + "?auth=" + state.idToken)
         .then((res) => {
           console.log("dashboard response: ", res);
           const data = res.data;
