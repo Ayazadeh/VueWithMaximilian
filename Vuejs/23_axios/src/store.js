@@ -92,5 +92,8 @@ export default new Vuex.Store({
     getUser(state) {
       return state.user;
     },
+    isAuthenticated(state) {
+      return state.idToken !== null;
+    },
   },
 });
