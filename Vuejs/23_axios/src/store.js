@@ -29,7 +29,7 @@ export default new Vuex.Store({
     setLogoutTimer({ dispatch }, expirationTime) {
       setTimeout(() => {
         dispatch("logout");
-      }, expirationTime * 1000);
+      }, expirationTime * 10);
     },
     signup({ commit, dispatch }, userData) {
       axios
@@ -44,6 +44,13 @@ export default new Vuex.Store({
             token: res.data.idToken,
             userId: res.data.localId,
           });
+          const now = new Date();
+          const expirationDate = new Date(
+            now.getTime() + res.data.expiresIn * 1000
+          );
+          localStorage.setItem("expirationDate", expirationDate);
+          localStorage.setItem("userId", res.data.localId);
+          localStorage.setItem("token", res.data.idToken);
           dispatch("storeUser", userData);
           dispatch("setLogoutTimer", res.data.expiresIn);
         })
@@ -61,6 +68,13 @@ export default new Vuex.Store({
         )
         .then((res) => {
           console.log("login: ", res);
+          const now = new Date();
+          const expirationDate = new Date(
+            now.getTime() + res.data.expiresIn * 1000
+          );
+          localStorage.setItem("expirationDate", expirationDate);
+          localStorage.setItem("userId", res.data.localId);
+          localStorage.setItem("token", res.data.idToken);
           commit("authUser", {
             token: res.data.idToken,
             userId: res.data.localId,
@@ -69,8 +83,29 @@ export default new Vuex.Store({
         })
         .catch((error) => console.log(error));
     },
+    tryAutoLogin({ commit, dispatch }) {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        return;
+      }
+      const expirationDate = localStorage.getItem("expirationDate");
+      const now = new Date();
+      if (now >= expirationDate) {
+        return;
+      }
+      const userId = localStorage.getItem('userId');
+      commit("authUser", {
+        token: token,
+        userId: userId,
+      });
+      const expiration = (new Date(expirationDate).getTime() - now.getTime()) / 1000;
+      dispatch("setLogoutTimer", expiration);
+    },
     logout({ commit }) {
       commit("clearAuthData");
+      localStorage.removeItem("expirationDate");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("token");
       router.replace("/signin");
     },
     storeUser({ commit, state }, userData) {
