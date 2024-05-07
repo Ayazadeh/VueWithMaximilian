@@ -11,24 +11,6 @@ export default {
     TheHeader,
     TheResources,
   },
-  data() {
-    return {
-      storedResources: [
-        {
-          id: 'official-guid',
-          title: 'Official Guid',
-          description: 'The official vue.js documentation.',
-          link: 'https://vuejs.org',
-        },
-        {
-          id: 'google',
-          title: 'Google',
-          description: 'Learn to google...',
-          link: 'https://google.org',
-        },
-      ],
-    };
-  },
 };
 </script>
 <style>
@@ -43,6 +25,6 @@ html {
 }
 
 body {
-  margin: ;
+  margin: auto;
 }
 </style>

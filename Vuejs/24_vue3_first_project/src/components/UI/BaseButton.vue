@@ -6,7 +6,10 @@
   
   <script>
   export default {
-    props: ['type', 'mode']
+    props: {
+      type: String,
+      mode: String, // flat
+    },
   }
   </script>
   
