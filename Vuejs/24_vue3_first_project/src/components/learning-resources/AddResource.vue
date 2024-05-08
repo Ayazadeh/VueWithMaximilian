@@ -27,7 +27,7 @@
         ></textarea>
       </div>
       <div class="form-control">
-        <label for="link">Title</label>
+        <label for="link">Link</label>
         <input id="link" name="link" type="url" ref="linkInput" />
       </div>
       <div>
