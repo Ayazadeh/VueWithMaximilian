@@ -1,6 +1,7 @@
 # Axios
-برای این پروژه فیلتر شکن نیاز است
 > Vue Auth & more
+
+> Firebase is used as a backend in this project
 
 ## Build Setup
 
