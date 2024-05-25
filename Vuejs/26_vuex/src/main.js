@@ -6,7 +6,7 @@ import App from './App.vue';
 const store = createStore({
     state(){
         return{
-            counter: 25.5
+            counter: 0
         }
     }
 })
