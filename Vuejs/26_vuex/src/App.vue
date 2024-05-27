@@ -1,6 +1,6 @@
 <template>
   <base-container title="Vuex">
-    <the-counter/>
+    <the-counter />
     <button @click="addOne">add 1</button>
     <button @click="addFive">add 5</button>
   </base-container>
@@ -13,15 +13,15 @@ import TheCounter from './components/TheCounter.vue';
 export default {
   components: {
     BaseContainer,
-    TheCounter
+    TheCounter,
   },
   methods: {
     addOne() {
-      this.$store.commit('increment')
+      this.$store.commit('increment');
     },
-    addFive(){
-      this.$store.commit('increse', {value: 5})
-    }
+    addFive() {
+      this.$store.commit('increse', { value: 5 });
+    },
   },
 };
 </script>
