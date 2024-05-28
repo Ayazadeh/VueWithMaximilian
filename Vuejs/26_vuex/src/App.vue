@@ -1,19 +1,24 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Vuex" v-if="isAuth">
     <the-counter />
     <button @click="addOne">add 1</button>
     <button @click="addFive">add 5</button>
+  </base-container>
+  <base-container title="Auth">
+    <user-auth/>
   </base-container>
 </template>
 
 <script>
 import BaseContainer from './components/BaseContainer.vue';
 import TheCounter from './components/TheCounter.vue';
+import UserAuth from './components/UserAuth.vue';
 
 export default {
   components: {
     BaseContainer,
     TheCounter,
+    UserAuth
   },
   methods: {
     addOne() {
@@ -23,6 +28,11 @@ export default {
       this.$store.dispatch('increseAsync', { value: 5 });
     },
   },
+  computed:{
+    isAuth(){
+      return this.$store.getters.userIsAuthenticated
+    }
+  }
 };
 </script>
 
