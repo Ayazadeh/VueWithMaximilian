@@ -17,10 +17,10 @@ export default {
   },
   methods: {
     addOne() {
-      this.$store.commit('increment');
+      this.$store.dispatch('incrementAsync');
     },
     addFive() {
-      this.$store.commit('increse', { value: 5 });
+      this.$store.dispatch('increseAsync', { value: 5 });
     },
   },
 };
