@@ -6,10 +6,10 @@
 export default {
   computed: {
     counter() {
-      return this.$store.getters.finalCounter;
+      return this.$store.getters['number/finalCounter'];
     },
     normalizedCounter() {
-      return this.$store.getters.normalizedCounter;
+      return this.$store.getters['number/normalizedCounter'];
     },
   },
 };

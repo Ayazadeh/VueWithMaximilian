@@ -15,17 +15,17 @@ import TheCounter from './components/TheCounter.vue';
 import UserAuth from './components/UserAuth.vue';
 
 export default {
-  components: {
+  components: { 
     BaseContainer,
     TheCounter,
     UserAuth
   },
   methods: {
     addOne() {
-      this.$store.dispatch('incrementAsync');
+      this.$store.dispatch('number/incrementAsync');
     },
     addFive() {
-      this.$store.dispatch('increseAsync', { value: 5 });
+      this.$store.dispatch('number/increaseAsync', { value: 5 });
     },
   },
   computed:{

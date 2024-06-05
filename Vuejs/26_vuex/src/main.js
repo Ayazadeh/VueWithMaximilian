@@ -4,6 +4,7 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 
 const countedStore = {
+  namespaced: true,
   state() {
     return {
       counter: 0,
@@ -13,7 +14,7 @@ const countedStore = {
     increment(state) {
       state.counter++;
     },
-    increse(state, payload) {
+    increase(state, payload) {
       state.counter += payload.value;
     },
   },
@@ -23,9 +24,9 @@ const countedStore = {
         context.commit('increment');
       }, 2000);
     },
-    increseAsync(context, payload) {
+    increaseAsync(context, payload) {
       setTimeout(() => {
-        context.commit('increse', payload);
+        context.commit('increase', payload);
       }, 1000);
     },
   },
