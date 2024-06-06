@@ -15,15 +15,6 @@ export default {
       isLoggedIn: false,
     };
   },
-  provide() {
-    return {
-      isLoggedIn: this.isLoggedIn,
-      addProductToCart: this.addProductToCart,
-      removeProductFromCart: this.removeProductFromCart,
-      login: this.login,
-      logout: this.logout,
-    };
-  },
   methods: {
     login() {
       this.isLoggedIn = true;

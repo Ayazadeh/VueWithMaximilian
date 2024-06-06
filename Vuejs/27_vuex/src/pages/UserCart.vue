@@ -1,10 +1,12 @@
 <template>
   <section>
     <h2>Your Cart</h2>
-    <h3>Total Amount: <base-badge mode="elegant">${{ cartTotal }}</base-badge></h3>
+    <h3>
+      Total Amount: <base-badge mode="elegant">${{ cartTotal }}</base-badge>
+    </h3>
     <ul>
       <cart-item
-        v-for="item in cart.items"
+        v-for="item in cartItems"
         :key="item.productId"
         :prod-id="item.productId"
         :title="item.title"
@@ -20,15 +22,17 @@
 import CartItem from '../components/cart/CartItem.vue';
 
 export default {
-  inject: ['cart'],
   components: {
     CartItem,
   },
   computed: {
+    cartItems() {
+      return this.$store.getters['cart/cartItems'];
+    },
     cartTotal() {
-      return this.cart.total.toFixed(2);
-    }
-  }
+      return this.$store.getters['cart/cartTotal'];
+    },
+  },
 };
 </script>
 
@@ -46,7 +50,7 @@ h2 {
 }
 
 h3 {
- text-align: center;
+  text-align: center;
 }
 
 ul {

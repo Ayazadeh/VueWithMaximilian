@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { store } from './store/index';
+import store from './store/index.js';
 import router from './router.js';
 import App from './App.vue';
 import BaseBadge from './components/ui/BaseBadge.vue';
