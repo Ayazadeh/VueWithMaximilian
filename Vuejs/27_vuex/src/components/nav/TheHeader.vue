@@ -30,6 +30,17 @@ export default {
     cartQuantity() {
       return this.$store.getters['cart/cartQty'];
     },
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('loginAction');
+    },
+    logout() {
+      this.$store.dispatch('logoutAction');
+    },
   },
 };
 </script>
