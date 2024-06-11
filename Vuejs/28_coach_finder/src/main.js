@@ -3,4 +3,16 @@ import App from "./App.vue";
 import router from "./router/index";
 import store from "./store/index";
 
-createApp(App).use(store).use(router).mount("#app");
+import BaseCard from "@/components/ui/BaseCard";
+import BaseButton from "@/components/ui/BaseButton.vue";
+import BaseBadge from "@/components/ui/BaseBadge.vue";
+
+createApp(App)
+  .use(store)
+  .use(router)
+
+  .component("base-card", BaseCard)
+  .component("base-button", BaseButton)
+  .component("base-badge", BaseBadge)
+
+  .mount("#app");
