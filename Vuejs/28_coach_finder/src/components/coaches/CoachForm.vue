@@ -2,11 +2,7 @@
   <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="firstname">Firstname</label>
-      <input
-        type="text"
-        id="firstname"
-        v-model.trim="firstName"
-      />
+      <input type="text" id="firstname" v-model.trim="firstName" />
     </div>
     <div class="form-control">
       <label for="lastname">Lastname</label>
@@ -50,6 +46,7 @@ export default {
       areas: [],
     };
   },
+  emits: ["save-data"],
   methods: {
     submitForm() {
       const formData = {
@@ -60,7 +57,7 @@ export default {
         areas: this.areas,
       };
 
-      console.log('test form ', formData);
+      this.$emit("save-data", formData);
     },
   },
 };
@@ -77,7 +74,7 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input[type='checkbox'] + label {
+input[type="checkbox"] + label {
   font-weight: normal;
   display: inline;
   margin: 0 0 0 0.5rem;
@@ -98,13 +95,13 @@ textarea:focus {
   border-color: #3d008d;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   display: inline;
   width: auto;
   border: none;
 }
 
-input[type='checkbox']:focus {
+input[type="checkbox"]:focus {
   outline: #3d008d solid 1px;
 }
 
