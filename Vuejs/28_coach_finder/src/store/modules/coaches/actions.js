@@ -28,4 +28,26 @@ export default {
       id: userId,
     });
   },
+  async loadCoaches(context) {
+    const response = await fetch(
+      `https://vue-backend-48df1-default-rtdb.firebaseio.com/coaches.json`
+    );
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      // TODO: error...
+    }
+
+    const coaches = [];
+
+    for (const key in responseData) {
+      coaches.push({
+        id: key,
+        ...responseData[key],
+      });
+    }
+
+    context.commit("setCoaches", coaches);
+  },
 };
