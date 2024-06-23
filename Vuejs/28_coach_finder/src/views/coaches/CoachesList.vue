@@ -69,7 +69,7 @@ export default {
       });
     },
     hasCoaches() {
-      return this.$store.getters["coaches/hasCoaches"];
+      return !this.isLoading && this.$store.getters["coaches/hasCoaches"];
     },
   },
   created() {
@@ -79,8 +79,10 @@ export default {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
-    loadCoaches() {
-      this.$store.dispatch("coaches/loadCoaches");
+    async loadCoaches() {
+      this.isLoading = true;
+      await this.$store.dispatch("coaches/loadCoaches");
+      this.isLoading = false;
     },
     handleError() {
       this.error = null;
