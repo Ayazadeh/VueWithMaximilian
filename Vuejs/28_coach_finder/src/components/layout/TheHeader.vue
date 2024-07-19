@@ -6,11 +6,22 @@
       </h1>
       <ul>
         <li><router-link to="/coaches">All Coaches</router-link></li>
-        <li><router-link to="/requests">Requests</router-link></li>
+        <li v-if="isLoggedIn"><router-link to="/requests" >Requests</router-link></li>
+        <li v-else><router-link to="/auth">login</router-link></li>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
+};
+</script>
 
 <style scoped>
 header {
@@ -71,5 +82,4 @@ header ul {
 li {
   margin: 0 0.5rem;
 }
-
 </style>
