@@ -12,10 +12,11 @@ const routes = [
   { path: "/", redirect: "/coaches" },
   { path: "/coaches", component: CoachesList },
   {
+    name: "coach-detail",
     path: "/coaches/:id",
     props: true,
     component: CoachDetail,
-    children: [{ path: "contact", component: ContactCoach }],
+    children: [{ path: "contact", component: ContactCoach, name:"contact" }],
   },
   { path: "/register", component: CoachRegistration },
   { path: "/requests", component: RequestsReceived },
