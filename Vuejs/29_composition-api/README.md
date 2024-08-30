@@ -1,5 +1,9 @@
 # 29_composition-api
 
+* ref
+* computed 
+* watch
+
 ## Project setup
 ```
 yarn install
