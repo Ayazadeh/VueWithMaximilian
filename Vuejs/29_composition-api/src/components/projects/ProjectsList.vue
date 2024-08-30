@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { ref, computed, watch } from 'vue';
 import ProjectItem from './ProjectItem.vue';
 
 export default {
@@ -20,41 +21,44 @@ export default {
     ProjectItem,
   },
   props: ['user'],
-  data() {
-    return {
-      enteredSearchTerm: '',
-      activeSearchTerm: '',
-    };
-  },
-  computed: {
-    hasProjects() {
-      return this.user.projects && this.availableProjects.length > 0;
-    },
-    availableProjects() {
-      if (this.activeSearchTerm) {
-        return this.user.projects.filter((prj) =>
-          prj.title.includes(this.activeSearchTerm)
-        );
+  setup(props) {
+    const enteredSearchTerm = ref('');
+    const activeSearchTerm = ref('');
+
+    const hasProjects = computed(() => {
+      return props.user.projects && availableProjects.value.length > 0;
+    })
+
+    const availableProjects = computed(() => {
+      if (activeSearchTerm.value) {
+        return props.user.projects.filter((prj) => prj.title.toLowerCase().includes(activeSearchTerm.value))
       }
-      return this.user.projects;
-    },
-  },
-  methods: {
-    updateSearch(val) {
-      this.enteredSearchTerm = val;
-    },
-  },
-  watch: {
-    enteredSearchTerm(val) {
+      return props.user.projects;
+    })
+
+    const updateSearch = (val) => {
+      enteredSearchTerm.value = val;
+    }
+
+    watch(enteredSearchTerm, (val) => {
       setTimeout(() => {
-        if (val === this.enteredSearchTerm) {
-          this.activeSearchTerm = val;
+        if (val === enteredSearchTerm.value) {
+          activeSearchTerm.value = val;
         }
       }, 300);
-    },
-    user() {
-      this.enteredSearchTerm = '';
-    },
+    });
+
+    watch(() => props.user, () => {
+      enteredSearchTerm.value = ''; 
+    })
+
+    return {
+      availableProjects,
+      enteredSearchTerm,
+      activeSearchTerm,
+      hasProjects,
+      updateSearch,
+    }
   },
 };
 </script>
