@@ -1,5 +1,8 @@
 # 30_composition-api
 
+* routing
+* params
+
 ## Project setup
 ```
 yarn install
