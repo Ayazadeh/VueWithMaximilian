@@ -2,6 +2,7 @@
 
 * routing
 * params
+* Vuex
 
 ## Project setup
 ```
