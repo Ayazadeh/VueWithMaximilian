@@ -43,7 +43,7 @@ export default {
     );
 
     const hasProjects = computed(() => {
-      return user.value.projects && availableItems.value.length > 0;
+      return projects.value.length > 0;
     });
 
     watch(user, () => {

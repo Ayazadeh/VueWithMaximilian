@@ -1,7 +1,7 @@
 <template>
   <main>
     <user-list :users="activeUsers" @list-projects="selectUser"></user-list>
-    <projects-list :user="selectedUser"></projects-list>
+    <projects-list :user="selectedUser" :key="selectedUser"></projects-list>
   </main>
 </template>
 
