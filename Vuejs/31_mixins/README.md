@@ -1,5 +1,12 @@
 # 31_mixins
 
+<br/>
+
+* mixins
+* composables
+
+<br>
+
 ## Project setup
 ```
 yarn install
