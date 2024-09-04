@@ -19,7 +19,7 @@ export default {
   },
   // mixins: [alertMixin],
   setup() {
-    const { alertIsVisible, showAlert, hideAlert } = useAlert();
+    const { alertIsVisible, showAlert, hideAlert } = useAlert(true);
 
     return {
       alertIsVisible,
