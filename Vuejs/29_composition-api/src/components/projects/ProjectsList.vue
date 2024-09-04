@@ -38,7 +38,7 @@ export default {
     });
 
     const { enteredSearchTerm, availableItems, updateSearch } = useSearch(
-      projects.value,
+      projects,
       "title"
     );
 

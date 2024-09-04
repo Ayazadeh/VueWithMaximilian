@@ -6,11 +6,11 @@ export default function useSearch(items, searchProp) {
 
   const availableItems = computed(() => {
     if (activeSearchTerm.value) {
-      return items.filter((item) =>
+      return items.value.filter((item) =>
         item[searchProp].toLowerCase().includes(activeSearchTerm.value)
       );
     }
-    return items || [];
+    return items.value || [];
   });
 
   watch(enteredSearchTerm, (val) => {
