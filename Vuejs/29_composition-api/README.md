@@ -3,6 +3,7 @@
 * ref
 * computed 
 * watch
+* hooks => composables
 
 ## Project setup
 ```
